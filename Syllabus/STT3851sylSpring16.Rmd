@@ -16,7 +16,7 @@ Questions related to the class should be addressed with the [piazza account for 
 
 **Course Description:**  
 
-This course covers elements of data management, descriptive statistics,  and inferential statistics. The course also examines the variance-bias tradeoff, linear regression with K- nearest neighbors, classification including logistic regression and linear discriminant analysis, cross-validation, bootstrapping, subset selection, ridge and lasso regression, and choosing optimal models. 
+This course covers elements of data management, descriptive statistics,  and inferential statistics. The course also examines the variance-bias tradeoff, linear regression, linear regression with K- nearest neighbors, classification including logistic regression and linear discriminant analysis, cross-validation, bootstrapping, subset selection, ridge and lasso regression, and choosing optimal models. 
 
 **Course Objectives:**
 
