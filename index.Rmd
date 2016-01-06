@@ -14,7 +14,10 @@ output: html_document
 # Resources you may find helpful
 
 * [Web site for _The Elements of Statistical Learning_ (free pdf of book)](http://statweb.stanford.edu/~tibs/ElemStatLearn/)
+
 * [Web site for _An Introduction to Statistical Learning_ (free pdf of book)](http://www-bcf.usc.edu/~gareth/ISL/)
+
+* [Course Notes STT 3850 (Spring 2014)](https://github.com/alanarnholt/STT3850/blob/master/Notes/Parent/ParentForPDF.pdf) (Click the `raw` button to download the pdf to your local machine)
 
 ### Chapter 1: Introduction ([slides](https://lagunita.stanford.edu/c4x/HumanitiesScience/StatLearning/asset/introduction.pdf))
 
