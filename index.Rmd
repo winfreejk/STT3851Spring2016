@@ -6,7 +6,9 @@ output: html_document
 ---
 
 
-* The course syllabus is stored in the `Syllabus` directory of the STT 3851 repository.
+* The course syllabus is stored in the [`Syllabus`](./Syllabus/index.html) directory of the STT 3851 repository.
+
+* Course pacing and assignments are stored in the [`Assignments`](./Assignments/index.html) directory of the STT 3851 repository.
 
 * Questions related to course materials should be addressed with the [piazza account for STT 3851](https://piazza.com/class/ij30tx2hndb4ew).
 
