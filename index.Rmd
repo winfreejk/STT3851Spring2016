@@ -6,9 +6,9 @@ output: html_document
 ---
 
 
-* The course syllabus is stored in the [`Syllabus`](./Syllabus/index.html) directory of the STT 3851 repository.
+* The course syllabus is stored in the [`Syllabus`](./Syllabus/STT3851Spring2016Syllabus.html) directory of the STT 3851 repository.
 
-* Course pacing and assignments are stored in the [`Assignments`](./Assignments/index.html) directory of the STT 3851 repository.
+* Course pacing and assignments are stored in the [`Assignments`](./Assignments/AssignmentsSTT3851Spring2016.html) directory of the STT 3851 repository.
 
 * Experiment click here for [`Flow Control`](./Rmarkdown/FlowControl.html)
 
