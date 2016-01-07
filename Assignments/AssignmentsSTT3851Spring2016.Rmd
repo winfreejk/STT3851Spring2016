@@ -36,7 +36,7 @@ Watch the following Videos:
 
 **Jan 19:**
 
-* Lecture - Rmarkdown
+* Lecture - [Rmarkdown example](../Rmarkdown/FlowControl.html)
 * Read chapter 1 ISLR
 * Watch [Opening Remarks and Examples](https://www.youtube.com/watch?v=2wLfFB_6SKI) (18:18)
 * Watch [Supervised and Unsupervised Learning](https://www.youtube.com/watch?v=LvaTokhYnDw) (12:12)
