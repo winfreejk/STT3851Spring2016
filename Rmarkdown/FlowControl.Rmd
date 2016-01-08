@@ -2,7 +2,10 @@
 title: "Flow Control"
 author: "Probability and Statistics with R, Second Edition"
 date: 'Last Updated on: `r Sys.Date()`'
-output: html_document
+output: 
+  html_document: 
+    highlight: zenburn
+    theme: readable
 ---
 
 # Flow Control
@@ -41,7 +44,7 @@ L_{n-1} + L_{n-2} & \text{if } n \geq 3.
 $$
 Use a `for` loop to compute the first 15 Lucas numbers.
 
-The first 15 Lucas numbers after allocating space using the `numeric` function for the answers.
+The first 15 Lucas numbers after allocating space using the `numeric()` function for the answers.
 
 ```{r c01LucasNumbers}
 Number <- 15              # Number of Lucas numbers desired 
@@ -72,10 +75,10 @@ i <- 0
 while( abs(newapp - oldapp) > tolerance){
   oldapp <- newapp
   newapp <- (oldapp + x/oldapp)/2
-  i <- i + 1 # Iteration number
+  i <- i + 1         # Iteration number
 }
 c(newapp, i)
-options(digits = 7) # reset to default
+options(digits = 7)  # reset to default
 ```
 
 Using a `repeat` statement to approximate $\sqrt{113734}$ to within a 0.00001 is shown next.
@@ -130,7 +133,7 @@ Write three separate programs to simulate throwing a pair of dice 99,999 times. 
 
 
 ### Solution:
-The function `sample` is used to sample 2 values with replacement from 1 to 6.
+The function `sample()` is used to sample 2 values with replacement from 1 to 6.
 
 **Using a for loop:** Each time the loop cycles, the mean of the two dice is stored in the $i^{\text{th}}$ position of the `means` vector.  The tabled results are stored in `T1` and subsequently printed.
 
@@ -138,7 +141,9 @@ The function `sample` is used to sample 2 values with replacement from 1 to 6.
 set.seed(3)           # setting seed for reproducibility
 N <- 10^5 - 1         # N = number of simulations
 means <- numeric(N)   # Defining numeric vector of size N
-for(i in 1:N){means[i] <- mean(sample(x = 1:6, size = 2, replace = TRUE))}
+for(i in 1:N){
+  means[i] <- mean(sample(x = 1:6, size = 2, replace = TRUE))
+  }
 T1 <- table(means)
 T1
 ```
@@ -146,12 +151,13 @@ T1
 **Using a while statement:** The command `matrix(0, N, 2)` creates a 99,999 by 2 matrix of zeros.  While $i \leq N$, the results from simulating tossing two dice  are stored in the $i^\text{th}$ row of the `N2mat` matrix.  The function `apply()` is used to compute the mean of each of the rows of `N2mat` and to store the result in the vector `means`.  The tabled results are stored in `T2` and subsequently printed.
 
 ```{r, c01Example3WHILE}
-set.seed(3)  # setting seed for reproducibility
+set.seed(3)                 # setting seed for reproducibility
 i <- 1
-N <- 10^5 - 1  # N = number of simulations
-N2mat <- matrix(0, N, 2)  # initialize N*2 matrix to all 0's
-while(i <= N){N2mat[i, ] <- sample(x = 1:6, size = 2, replace = TRUE)
-              i <- i + 1
+N <- 10^5 - 1               # N = number of simulations
+N2mat <- matrix(0, N, 2)    # initialize N*2 matrix to all 0's
+while(i <= N){
+  N2mat[i, ] <- sample(x = 1:6, size = 2, replace = TRUE)
+  i <- i + 1
 }
 means <- apply(N2mat, 1, mean)
 T2 <- table(means)
@@ -161,13 +167,14 @@ T2
 **Using a repeat statement:**  The line `N2mat[i, ] <- sample(1:6, 2, replace = TRUE)` is repeated, filling in the $i^\text{th}$ row of the matrix with values that simulate throwing two dice until $i = N$, at which point the repeat ends.  The function `apply()` is used to compute the mean of each of the rows of `N2mat` and to store the result in the vector `means`.  The tabled results are stored in `T3` and subsequently printed.
 
 ```{r, rc01Example3REPEAT}
-set.seed(3)  # setting seed for reproducibility
+set.seed(3)                  # setting seed for reproducibility
 i <- 1
-N <- 10^5 - 1  # N = number of simulations
-N2mat <- matrix(0, N, 2)  # initialize N*2 matrix to all 0's
-repeat{N2mat[i, ] <- sample(1:6, 2, replace = TRUE)
-if (i == N) break
-i <- i + 1
+N <- 10^5 - 1                # N = number of simulations
+N2mat <- matrix(0, N, 2)     # initialize N*2 matrix to all 0's
+repeat{
+  N2mat[i, ] <- sample(1:6, 2, replace = TRUE)
+  if (i == N) break
+  i <- i + 1
 }
 means <- apply(N2mat, 1, mean)
 T3 <- table(means)
