@@ -10,7 +10,9 @@ output: html_document
 
 * Course pacing and assignments are stored in the [`Assignments`](./Assignments/AssignmentsSTT3851Spring2016.html) directory of the STT 3851 repository.
 
-* Experiment click here for [`Flow Control`](./Rmarkdown/FlowControl.html)
+* [`Flow Control`](./Rmarkdown/FlowControl.html)
+
+* [`The Bootstrap`](./Rmarkdown/TheBootstrap.html)
 
 * Questions related to course materials should be addressed with the [piazza account for STT 3851](https://piazza.com/class/ij30tx2hndb4ew).
 
