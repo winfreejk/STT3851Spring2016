@@ -35,6 +35,8 @@ This course covers elements of data management, descriptive statistics,  and inf
 
 [_The Elements of Statistical Learning_](http://web.stanford.edu/~hastie/ElemStatLearn/) by Trevor Hastie, Robert Tibshirani, and Jerome Friedman
 
+[_R Graphics Cookbook_](http://www.amazon.com/R-Graphics-Cookbook-Winston-Chang/dp/1449316956) by Winston Chang - Available via `SafariBooksOnline` through the Appalachian State University [library](http://library.appstate.edu/). 
+
 
 **Course Grading:**
 
