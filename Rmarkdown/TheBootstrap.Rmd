@@ -148,7 +148,7 @@ n
 for(i in 1:B){
 index <- sample(n, n, replace = TRUE)
 NX <- Xorig[index, ]
-alphaBS[i] <- (var(NX)[2,2] - var(NX)[1,2]) / 
+alphaBS[i] <- (var(NX)[2, 2] - var(NX)[1, 2]) / 
   (var(NX)[1, 1] + var(NX)[2, 2] - 2*var(NX)[1, 2])
 }
 mean(alphaBS)
@@ -173,3 +173,54 @@ Note that the bootstrap density looks very similar to the simulation density of 
 ## General Bootstrap Schematic
 
 ![GBS](BootstrapPASWR2.png)
+
+## Using the `boot` package
+
+Start by writing a function to compute the desired quantity for a given data frame that takes two arguments: the data frame and an index.  In this example, we will use both the original simulated data (`Xorig`) and the `Portfolio` data frame from the `ISLR` package.
+
+```{r}
+library(ISLR)
+Xorig <- data.frame(Xorig)
+head(Portfolio)
+alpha.fn <- function(DF, index){
+  X <- DF$X[index]
+  Y <- DF$Y[index]
+  return((var(Y) - cov(X,Y)) / (var(X) + var(Y) - 2*cov(X, Y)))
+}
+```
+
+This function outputs an estimate for $\alpha$ based on applying the chosen statistic to the observations indexed by the argument `index`.  For instance, the following command tells `R` to estimate $\alpha$ using all 100 observations.
+
+```{r}
+alpha.fn(Portfolio, 1:100)
+alpha.fn(Xorig, 1:100)
+```
+
+The next command uses the `sample()` function to randomly select 100 observations from the range 1 to 100, with replacement.  This is equivalent to constructing a new bootstrap data set and recomputing $\hat{\alpha}$ based on the new data set.
+
+```{r}
+set.seed(3)
+alpha.fn(Portfolio, sample(x = 1:100, size = 100, replace = TRUE))
+alpha.fn(Xorig, sample(x = 1:100, size = 100, replace = TRUE))
+```
+
+We can implement a bootstrap analysis by performing this command many times, recording all of the corresponding estimates for $\alpha$, and computing the resulting standard deviation.  However, the `boot()` function (from the `boot` package) automates this apporach.  Below we produce $R = 1,000$ bootstrap estimates for $\alpha$.
+
+```{r}
+set.seed(1)
+library(boot)
+boot.obj1 <- boot(data = Portfolio, statistic = alpha.fn, R = 1000)
+boot.obj1
+plot(boot.obj1)
+SEB1 <- sd(boot.obj1$t)
+SEB1
+BIAS1 <- mean(boot.obj1$t) - boot.obj1$t0
+BIAS1
+boot.obj2 <- boot(data = Xorig, statistic = alpha.fn, R = 1000)
+boot.obj2
+plot(boot.obj2)
+SEB2 <- sd(boot.obj2$t)
+SEB2
+```
+
+The final output shows that using the original data (`Portfolio`), $\hat{\alpha} = `r boot.obj1$t0`$, and that the bootstrap estimate for $\text{SE}(\hat{\alpha}) = `r SEB1`.$
