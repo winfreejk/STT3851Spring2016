@@ -1,7 +1,7 @@
 ---
 title: "The Bootstrap"
 author: "Modified Example from ISLR"
-date: 'Last Updated on: `r Sys.Date()`'
+date: 'Last Updated on: `r format(Sys.time(), "%b %d, %Y at %X")`'
 output: 
   html_document: 
     highlight: textmate
