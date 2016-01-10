@@ -44,7 +44,8 @@ This course covers elements of data management, descriptive statistics,  and inf
 **Course Grading:**
 
 * There will be a midterm, a written project, and a poster presentation which will each count for 20% of the course grade.
-* 40% of the course grade will come from quizzes.
+* 30% of the course grade will come from quizzes.
+* 10% of the course grade will come from participation (attendance, participation in discussion in-class and/or online).
 
 
 **How To Get Unstuck**
