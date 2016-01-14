@@ -12,6 +12,9 @@ output:
 
 * Go over syllabus.
 
+* Become familiar with the Appstate [RStudio server](https://mathr.math.appstate.edu/). You will use your Appstate user name and password to log in to the server.  You must be registered in the class to access the server.
+
+
 * In class lecture: Review of one and two sample inference, permutation tests, and bootstrap procedures --- take notes
 
 * Sign-up for free accounts on [GitHub](https://github.com) and [Rpubs](https://rpubs.com).
@@ -35,27 +38,33 @@ Watch the following Videos:
 * [Clone a GitHub Repo with RStudio (Video)](https://www.youtube.com/watch?v=YxZ8J2rqhEM) (5:05)
 
 
-* Become familiar with the Appstate [RStudio server](https://mathr.math.appstate.edu/). You will use your Appstate user name and password to log in to the server.  You must be registered in the class to access the server.
+
+
+
+
+**Jan 19:**
+
+* In class lecture: Review of one and two sample inference, permutation tests, and bootstrap procedures --- take notes
 
 * Follow the directions from [Jenny Bryan's STAT 545](https://stat545-ubc.github.io/git00_index.html) to [Introduce yourself to Git](https://stat545-ubc.github.io/git04_introduce-self-to-git.html), [Make sure you can communicate with GitHub](https://stat545-ubc.github.io/git05_github-connection.html), [Test drive RStudio and GitHub](https://stat545-ubc.github.io/git07_git-github-rstudio.html), and [Cache your GitHub credentials](https://stat545-ubc.github.io/git06_credential-caching.html).
 
 
-**Jan 19:**
+**Jan 21:**
 
 * Lecture - [Rmarkdown example](../Rmarkdown/FlowControl.html)
 * Read chapter 1 ISLR
 * Watch [Opening Remarks and Examples](https://www.youtube.com/watch?v=2wLfFB_6SKI) (18:18)
 * Watch [Supervised and Unsupervised Learning](https://www.youtube.com/watch?v=LvaTokhYnDw) (12:12)
 
-**Jan 21:**
+
+
+**Jan 26:**
 
 * Lecture - Bias Variance Tradeoff
 * Read chapter 2 ISLR
 * Watch [Statistical Learning and Regression](https://www.youtube.com/watch?v=WjyuiK5taS8) (11:41)
 * Watch [Curse of Dimensionality and Parametric Models](https://www.youtube.com/watch?v=UvxHOkYQl8g) (11:40)
 * Watch [Assessing Model Accuracy and Bias-Variance Trade-off](https://www.youtube.com/watch?v=VusKAosxxyk) (10:04)
-
-**Jan 26:**
 
 **Jan 28:**
 
