@@ -9,7 +9,7 @@ integrate(f, 0, 1)
 MU <- 100
 SIGMA <- 10
 #
-f <- function(x, MU = 100, SIGMA = 10){
+f <- function(x){
   (1/(sqrt(2*pi*SIGMA^2)))*exp(-(x - MU)^2/(2*SIGMA^2))
 }
 
