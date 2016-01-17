@@ -2,8 +2,9 @@
 title: "STT 3851 Syllabus - Spring 2016"
 author: ''
 date: "Spring 2016"
-output: 
-  html_document: 
+output:
+  html_document:
+    css: asu.css
     highlight: textmate
     theme: readable
 ---

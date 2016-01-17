@@ -2,8 +2,9 @@
 title: "STT 3851 Homepage"
 author: ""
 date: 'Last Updated on: `r format(Sys.time(), "%b %d, %Y at %X")`'
-output: 
-  html_document: 
+output:
+  html_document:
+    css: asu.css
     highlight: textmate
     theme: readable
 ---
