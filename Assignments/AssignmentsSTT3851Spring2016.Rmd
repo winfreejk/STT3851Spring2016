@@ -121,4 +121,4 @@ Watch the following Videos:
 
 **May 3:**
 
-[Home Page](http://stat-ata-asu.github.io/STT3851Spring2016/)
+#[Home Page](http://stat-ata-asu.github.io/STT3851Spring2016/)
