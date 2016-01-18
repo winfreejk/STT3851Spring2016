@@ -61,27 +61,38 @@ X <- CALCULUS$score[CALCULUS$calculus == "Yes"]
 Y <- CALCULUS$score[CALCULUS$calculus == "No"]
 Zobs <- (mean(X) - mean(Y) -(0)) / (sqrt(25/18 + 144/18))
 Zobs
-# Or using z.test() from PASWR2
+```
+
+## Consider using `z.test()` from `PASWR2`
+
+```{r}
 z.test(x = X, sigma.x = 5, y = Y, sigma.y = 12, mu = 0, alternative = "greater")
-# T-test now
-SX <- sd(X)
-SY <- sd(Y)
+```
+
+## T-test now
+
+```{r}
 t.test(X, Y, alternative = "greater")
-# 
+# Discuss: Why is the alternative "less" now...
 t.test(score ~ calculus, data = CALCULUS, alternative = "less")
-#
-# Draw t_{20.585}
+```
+
+## Draw $t_{20.585}$
+
+```{r}
 curve(dt(x, 20.585), from = -4, to = 4, n = 500, col = "blue")
 curve(dt(x, 2), from = -4, to = 4, n = 500, col = "purple", add = TRUE)
 curve(dnorm(x), from = -4, to = 4, n = 500, col = "pink", add = TRUE)
+```
 
-#### Randomization test
+## Randomization test
 
 #### Distribute Cards and go through example before this code
-####
+
+```{r}
 obsDIFF <- diff(tapply(CALCULUS$score, CALCULUS$calculus, mean))
 obsDIFF
-R <- 10000
+R <- 1000
 TS <- numeric(R)
 set.seed(123)
 for(i in 1:R){
@@ -90,10 +101,14 @@ for(i in 1:R){
 }
 pvalue <- (sum(TS >= obsDIFF) + 1)/(R + 1)
 pvalue
-# Another approach using the standardized t
+```
+
+## Another approach using the standardized t
+
+```{r}
 obsDIFF <- t.test(score ~ calculus, data = CALCULUS, alternative = "less")$stat
 obsDIFF
-R <- 10000
+R <- 1000
 TS <- numeric(R)
 set.seed(123)
 for(i in 1:R){
@@ -101,9 +116,13 @@ for(i in 1:R){
 }
 pvalue <- (sum(TS <= obsDIFF) + 1)/(R + 1)
 pvalue
-#### What about a Confidence Interval --- Bootstrap
-#### Key concept sample with replacement!
-R <- 10000
+```
+
+## What about a Confidence Interval? --- Bootstrap
+**Key concept sample with replacement!**
+
+```{r}
+R <- 1000
 TS <- numeric(R)
 set.seed(123)
 for(i in 1:R){
@@ -114,4 +133,21 @@ for(i in 1:R){
 hist(TS, breaks = "Scott")
 CI <- quantile(TS, probs = c(0.025, 0.975))  # 95% Percentile Boostrap CI
 CI 
+```
+
+## Simple Linear Regression
+
+```{r message = FALSE, warning = FALSE}
+library(ggvis)
+ggvis(data = GRADES, x = ~sat, y = ~gpa) %>% 
+  layer_points() %>% 
+  layer_model_predictions(model = "lm", formula = gpa ~ sat)
+```
+
+```{r}
+slr.mod <- lm(gpa ~ sat, data = GRADES)
+summary(slr.mod)
+par(mfrow = c(2, 2))
+plot(slr.mod)
+par(mfrow = c(1, 1))
 ```

@@ -47,6 +47,8 @@ Watch the following Videos:
 
 * In class lecture: Review of one and two sample inference, permutation tests, and bootstrap procedures --- take notes
 
+* [Statistics Review](../Rmarkdown/StatReview.html)
+
 * Follow the directions from [Jenny Bryan's STAT 545](https://stat545-ubc.github.io/git00_index.html) to [Introduce yourself to Git](https://stat545-ubc.github.io/git04_introduce-self-to-git.html), [Make sure you can communicate with GitHub](https://stat545-ubc.github.io/git05_github-connection.html), [Test drive RStudio and GitHub](https://stat545-ubc.github.io/git07_git-github-rstudio.html), and [Cache your GitHub credentials](https://stat545-ubc.github.io/git06_credential-caching.html).
 
 
