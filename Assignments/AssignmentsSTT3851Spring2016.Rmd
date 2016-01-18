@@ -30,6 +30,8 @@ output:
 
 * In class lecture: Review of one and two sample inference, permutation tests, and bootstrap procedures --- take notes
 
+* Quiz
+
 Watch the following Videos:
 
 * [Phillip Guo's Unix-like command line tutorials (Four tutorials about 10 minutes each)](http://www.pgbovine.net/command-line-tutorial.htm)
@@ -54,6 +56,22 @@ Watch the following Videos:
 
 **Jan 21:**
 
+* In class lecture: Review of one and two sample inference, permutation tests, and bootstrap procedures --- take notes
+
+* [Statistics Review](../Rmarkdown/StatReview.html)
+
+* Update README file in private repository
+
+* Use an avatar or picture on your GitHub account
+
+* Quiz
+
+
+
+
+
+**Jan 26:**
+
 * Lecture - [Rmarkdown example](../Rmarkdown/FlowControl.html)
 * Read chapter 1 ISLR
 * Watch [Opening Remarks and Examples](https://www.youtube.com/watch?v=2wLfFB_6SKI) (18:18)
@@ -61,15 +79,13 @@ Watch the following Videos:
 
 
 
-**Jan 26:**
+**Jan 28:**
 
 * Lecture - Bias Variance Tradeoff
 * Read chapter 2 ISLR
 * Watch [Statistical Learning and Regression](https://www.youtube.com/watch?v=WjyuiK5taS8) (11:41)
 * Watch [Curse of Dimensionality and Parametric Models](https://www.youtube.com/watch?v=UvxHOkYQl8g) (11:40)
 * Watch [Assessing Model Accuracy and Bias-Variance Trade-off](https://www.youtube.com/watch?v=VusKAosxxyk) (10:04)
-
-**Jan 28:**
 
 **Feb 2:**
 
