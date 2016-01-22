@@ -92,64 +92,139 @@ Watch the following Videos:
 * Lecture - Bias Variance Tradeoff - Take notes
 * [Classification Problems and K-Nearest Neighbors](https://www.youtube.com/watch?v=vVj2itVNku4) (15:37)
 * [Lab: Introduction to R](https://www.youtube.com/watch?v=jwBgGS_4RQA) (14:12)
-* Reproduce [Modified Lab 1]() up to but not including the _Additional Graphical and Numerical Summaries_ section.  Submit your html file to [CrowdGrader](https://www.crowdgrader.org/crowdgrader/venues/view_venue/1750) no later than 5 pm Feb 5.
+* Reproduce [Modified Introduction to R](../Rmarkdown/LabChap2.html) up to but not including the _Additional Graphical and Numerical Summaries_ section.  Submit your html file to [CrowdGrader](https://www.crowdgrader.org/crowdgrader/venues/view_venue/1750) no later than 5 pm Feb 5.
 
 
 **Feb 4:**
 
 * Lecture - Bias Variance Tradeoff - Take notes
 * Go over [Bias Variance Graphs](../Rmarkdown/BiasVariance.html) 
+* Flexible models and when to use them
 
 
 **Feb 9:**
 
 * Quiz Chapter 2 Videos/Reading
-* Reproduce [Modified Lab 1]().  Submit your html file to [CrowdGrader](https://www.crowdgrader.org/crowdgrader/venues/view_venue/1750) no later than 5 pm Feb 12.
+* Reproduce [Modified Introduction to R](../Rmarkdown/LabChap2.html).  Submit your html file to [CrowdGrader](https://www.crowdgrader.org/) no later than 5 pm Feb 12.
+
 
 **Feb 11:**
 
+* Work Day
+
 **Feb 16:**
+
+* Watch [Simple Linear Regression and Confidence Intervals](https://www.youtube.com/watch?v=PsE9UqoWtS4) (13:01)
+* Watch [Hypothesis Testing ](https://www.youtube.com/watch?v=J6AdoiNUyWI) (8:24)
+* Watch [Multiple Linear Regression and Interpreting Regression Coefficients ](https://www.youtube.com/watch?v=1hbCJyM9ccs) (15:38)
+
+
 
 **Feb 18:**
 
+* Watch [Model Selection and Qualitative Predictors](https://www.youtube.com/watch?v=3T6RXmIHbJ4) (14:51)
+* Watch [Interactions and Nonlinearity](https://www.youtube.com/watch?v=IFzVxLv0TKQ) (14:16)
+* Watch [Lab: Linear Regression](https://www.youtube.com/watch?v=5ONFqIk3RFg) (22:10)
+
+
 **Feb 23:**
+
+* Reproduce [Linear Regression]().  Submit your html file to [CrowdGrader](https://www.crowdgrader.org/) no later than 5 pm Feb 26.
 
 **Feb 25:**
 
+* [Start Project 1](http://www.amstat.org/publications/jse/v16n2/datasets.pardoe.html) - Read the hyperlinked paper.
+
 **Mar 1:**
 
+* Work on Project 1
+
 **Mar 3:**
+
+* Work on Project 1
 
 **~~Mar 7 - Mar 11~~ **No Class - Spring Break**
 
 **Mar 15:**
 
+* [Estimating Prediction Error and Validation Set Approach](https://www.youtube.com/watch?v=_2ij6eaaSl0) (14:01)
+* [K-fold Cross-Validation](https://www.youtube.com/watch?v=nZAM5OXrktY) (13:33)
+
+
 **Mar 17:**
+
+* [Cross-Validation: The Right and Wrong Ways](https://www.youtube.com/watch?v=S06JpVoNaA0) (10:07)
+* [The Bootstrap](https://www.youtube.com/watch?v=p4BYWX7PTBM) (11:29)
+* [More on the Bootstrap](https://www.youtube.com/watch?v=BzHz0J9a6k0) (14:35)
+* [Lab: Cross-Validation](https://www.youtube.com/watch?v=6dSXlqHAoMk) (11:21)
+* [Lab: The Bootstrap](https://www.youtube.com/watch?v=YVSmsWoBKnA) (7:40)
 
 **Mar 22:**
 
+* Work on _Lab: Cross-Validation and the Bootstrap_
+
 **Mar 24:**
+
+* Complete and submit to CrowdGrader _Lab: Cross-Validation and the Bootstrap_
 
 **~~Mar 29~~ No Class**
 
 **Mar 31:**
 
+* [Linear Model Selection and Best Subset Selection](https://www.youtube.com/watch?v=91si52nk3LA) (13:44)
+* [Forward Stepwise Selection](https://www.youtube.com/watch?v=nLpJd_iKmrE) (12:26)
+* [Backward Stepwise Selection ](https://www.youtube.com/watch?v=NJhMSpI2Uj8) (5:26)
+
 **Apr 5:**
+
+* [Estimating Test Error Using Mallow’s Cp, AIC, BIC, Adjusted R-squared](https://www.youtube.com/watch?v=LkifE44myLc) (14:06)
+* [Estimating Test Error Using Cross-Validation](https://www.youtube.com/watch?v=3p9JNaJCOb4) (8:43)
+
 
 **Apr 7:**
 
+* [Shrinkage Methods and Ridge Regression](https://www.youtube.com/watch?v=cSKzqb0EKS0) (12:37)
+* [The Lasso](https://www.youtube.com/watch?v=A5I1G1MfUmA) (15:21)
+* [Tuning Parameter Selection for Ridge Regression and Lasso](https://www.youtube.com/watch?v=xMKVUstjXBE) (5:27)
+
+
 **Apr 12:**
+
+* [Dimension Reduction](https://www.youtube.com/watch?v=QlyROnAjnEk) (4:45)
+* [Principal Components Regression and Partial Least Squares ](https://www.youtube.com/watch?v=eYxwWGJcOfw) (15:48)
+* [Lab: Best Subset Selection](https://www.youtube.com/watch?v=3kwdDGnV8MM) (10:36)
+* [Lab: Forward Stepwise Selection and Model Selection Using Validation Set](https://www.youtube.com/watch?v=mv-vdysZIb4) (10:32)
+* [Lab: Model Selection Using Cross-Validation](https://www.youtube.com/watch?v=F8MMHCCoALU) (5:32)
+* [Lab: Ridge Regression and Lasso ](https://www.youtube.com/watch?v=1REe3qSotx8) (16:34)
 
 **Apr 14:**
 
+* Work on Project 2
+* Work on _Lab: Subset Selection Methods_
+
 **Apr 19:**
+
+* Work on Project 2
+* Work on _Lab: Ridge Regression and the Lasso_
 
 **Apr 21:**
 
+* Turn in Project 2
+
 **Apr 26:**
+
+* Poster
 
 **Apr 28:**
 
+* Poster
+
 **May 3:**
+
+* Poster
+
+**May 11:**
+
+* Final - Present Poster
 
 #[Home Page](http://stat-ata-asu.github.io/STT3851Spring2016/)
