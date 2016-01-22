@@ -67,12 +67,11 @@ Watch the following Videos:
 * Quiz
 
 
-
-
-
 **Jan 26:**
 
 * Lecture - [Rmarkdown example](../Rmarkdown/FlowControl.html)
+* Bootstrap - [Rmarkdown example](../Rmarkdown/TheBootstrap.html)
+* Directory structure and cloning the organization repository
 * Read chapter 1 ISLR
 * Watch [Opening Remarks and Examples](https://www.youtube.com/watch?v=2wLfFB_6SKI) (18:18)
 * Watch [Supervised and Unsupervised Learning](https://www.youtube.com/watch?v=LvaTokhYnDw) (12:12)
@@ -81,7 +80,8 @@ Watch the following Videos:
 
 **Jan 28:**
 
-* Lecture - Bias Variance Tradeoff
+* Quiz over Chapter 1 Videos/Reading
+* Lecture - Bias Variance Tradeoff - Take notes
 * Read chapter 2 ISLR
 * Watch [Statistical Learning and Regression](https://www.youtube.com/watch?v=WjyuiK5taS8) (11:41)
 * Watch [Curse of Dimensionality and Parametric Models](https://www.youtube.com/watch?v=UvxHOkYQl8g) (11:40)
@@ -89,9 +89,21 @@ Watch the following Videos:
 
 **Feb 2:**
 
+* Lecture - Bias Variance Tradeoff - Take notes
+* [Classification Problems and K-Nearest Neighbors](https://www.youtube.com/watch?v=vVj2itVNku4) (15:37)
+* [Lab: Introduction to R](https://www.youtube.com/watch?v=jwBgGS_4RQA) (14:12)
+
+
 **Feb 4:**
 
+* Quiz Chapter 2 Videos/Reading
+* Lecture - Bias Variance Tradeoff - Take notes
+* Go over [Bias Variance Graphs](../Rmarkdown/BiasVariance.html) 
+
+
 **Feb 9:**
+
+* Recreate the Chapter 2 R Lab 
 
 **Feb 11:**
 
