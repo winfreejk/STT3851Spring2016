@@ -97,14 +97,15 @@ Watch the following Videos:
 
 **Feb 4:**
 
-* Lecture - Bias Variance Tradeoff - Take notes
+* Quiz Chapter 2 Videos/Reading
 * Go over [Bias Variance Graphs](../Rmarkdown/BiasVariance.html) 
 * Flexible models and when to use them
+* Reproduce [Modified Introduction to R](../Rmarkdown/LabChap2.html) up to but not including the _Additional Graphical and Numerical Summaries_ section.  Submit your html file to [CrowdGrader](https://www.crowdgrader.org/crowdgrader/venues/view_venue/1750) no later than 5 pm Feb 5.
 
 
 **Feb 9:**
 
-* Quiz Chapter 2 Videos/Reading
+
 * Reproduce [Modified Introduction to R](../Rmarkdown/LabChap2.html).  Submit your html file to [CrowdGrader](https://www.crowdgrader.org/) no later than 5 pm Feb 12.
 
 
