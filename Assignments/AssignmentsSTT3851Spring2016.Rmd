@@ -60,6 +60,8 @@ Watch the following Videos:
 
 * [Statistics Review](../Rmarkdown/StatReview.html)
 
+* [Schistosomiasis](../Rmarkdown/Schistosomiasis.html)
+
 * Update README file in private repository
 
 * Use an avatar or picture on your GitHub account
@@ -71,6 +73,7 @@ Watch the following Videos:
 
 * Lecture - [Rmarkdown example](../Rmarkdown/FlowControl.html)
 * Bootstrap - [Rmarkdown example](../Rmarkdown/TheBootstrap.html)
+* [Overplotting Examples and possible Solutions](../Rmarkdown/HousingData.html)
 * Directory structure and cloning the organization repository
 * Read chapter 1 ISLR
 * Watch [Opening Remarks and Examples](https://www.youtube.com/watch?v=2wLfFB_6SKI) (18:18)
