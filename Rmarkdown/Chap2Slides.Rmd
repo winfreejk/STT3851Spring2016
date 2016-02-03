@@ -1,0 +1,57 @@
+---
+title: "Chapter Two Graphs"
+author: "Alan Arnholt"
+date: 'Last updated: `r format(Sys.time(), "%b %d, %Y")`'
+output: html_document
+---
+
+```{r message = FALSE}
+site <- "http://www-bcf.usc.edu/~gareth/ISL/Advertising.csv"
+AD <- read.csv(site)
+head(AD)
+library(DT)
+datatable(AD[, -1], rownames = FALSE,
+          caption = 'Table 1: This is a simple caption for the table.') 
+```
+
+## Base R Graph
+
+```{r}
+plot(Sales ~ TV, data = AD, col = "red", pch = 19)
+mod1 <- lm(Sales ~ TV, data = AD)
+abline(mod1, col = "blue")
+```
+
+## Using `ggplot2`
+
+```{r}
+library(ggplot2)
+library(MASS)
+p <- ggplot(data = AD, aes(x = TV, y = Sales)) +
+  geom_point(color = "lightblue") +
+  geom_smooth(method = "lm", se = FALSE, color = "blue") +
+  geom_smooth(method = "loess", color = "red", se = FALSE) + 
+  geom_smooth(method = "rlm", color = "purple", se = FALSE) +
+  theme_bw()
+p
+```
+
+## Using `ggvis`
+
+```{r message = FALSE}
+library(ggvis)
+AD %>% 
+  ggvis(x = ~TV, y = ~Sales) %>% 
+  layer_points() %>% 
+  layer_model_predictions(model = "lm", se = FALSE) %>% 
+  layer_model_predictions(model = "MASS::rlm", se = FALSE, stroke := "blue") %>%
+  layer_smooths(stroke:="red", se = FALSE)
+```
+
+## Using `plotly`
+
+```{r, message = FALSE}
+library(plotly)
+p2 <- ggplotly(p)
+p2
+```

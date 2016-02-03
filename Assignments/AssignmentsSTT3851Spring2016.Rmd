@@ -102,18 +102,21 @@ Watch the following Videos:
 
 * Quiz Chapter 2 Videos/Reading
 * Go over [Bias Variance Graphs](../Rmarkdown/BiasVariance.html) 
+* Go over [Chapter 2 Graphs](../Rmarkdown/Chap2Slides.html)
 * Flexible models and when to use them
 * Reproduce [Modified Introduction to R](../Rmarkdown/LabChap2.html) up to but not including the _Additional Graphical and Numerical Summaries_ section.  Submit your html file to [CrowdGrader](https://www.crowdgrader.org/crowdgrader/venues/view_venue/1750) no later than 5 pm Feb 5.
 
 
 **Feb 9:**
 
+* [Watch Managing Change with RStudio]( https://www.rstudio.com/resources/webinars/rstudio-essentials-webinar-series-managing-change-part-1/) (37 minutes)
 
 * Reproduce [Modified Introduction to R](../Rmarkdown/LabChap2.html).  Submit your html file to [CrowdGrader](https://www.crowdgrader.org/) no later than 5 pm Feb 12.
 
 
 **Feb 11:**
 
+* Quiz over Managing Change with RStudio
 * Work Day
 
 **Feb 16:**
