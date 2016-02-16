@@ -125,6 +125,7 @@ Watch the following Videos:
 * Watch [Simple Linear Regression and Confidence Intervals](https://www.youtube.com/watch?v=PsE9UqoWtS4) (13:01)
 * Watch [Hypothesis Testing ](https://www.youtube.com/watch?v=J6AdoiNUyWI) (8:24)
 * Watch [Multiple Linear Regression and Interpreting Regression Coefficients ](https://www.youtube.com/watch?v=1hbCJyM9ccs) (15:38)
+* [Chapter 2 and 3 material](../Rmarkdown/Chap2Slides.html)
 
 
 
@@ -134,7 +135,7 @@ Watch the following Videos:
 * Watch [Model Selection and Qualitative Predictors](https://www.youtube.com/watch?v=3T6RXmIHbJ4) (14:51)
 * Watch [Interactions and Nonlinearity](https://www.youtube.com/watch?v=IFzVxLv0TKQ) (14:16)
 * Watch [Lab: Linear Regression](https://www.youtube.com/watch?v=5ONFqIk3RFg) (22:10)
-
+* [Chapter 2 and 3 material](../Rmarkdown/Chap2Slides.html)
 
 **Feb 23:**
 
