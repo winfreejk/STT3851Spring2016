@@ -129,6 +129,23 @@ confint(mod1)
 
 ### Linear Algebra
 
+**Solution of linear systems** Find the solution(s) if any to the following linear equations.
+
+$$2x + y - z = 8$$
+$$-3x - y + 2z = -11$$
+$$-2x + y + 2z = -3$$
+
+```{r}
+A <- matrix(c(2, -3, -2, 1, -1, 1, -1, 2, 2), nrow = 3)
+b <- matrix(c(8, -11, -3), nrow = 3)
+x <- solve(A)%*%b
+x
+# Or
+solve(A, b)
+```
+
+See [wikipedia](https://en.wikipedia.org/wiki/Matrix_multiplication) for a review of matrix multiplication rules and properties.
+
 
 Consider the 2 $\times$ 2 matrix $A$.
 
@@ -143,6 +160,8 @@ A <- matrix(c(2, 9, 4, 5), nrow = 2)
 A
 t(A)          # Transpose of A
 t(A)%*%A      # A'A
+solve(A)%*%A  # I_2
+zapsmall(solve(A)%*%A)  # What you expect I_2
 ```
 
 
@@ -163,6 +182,4 @@ MSE <- summary(mod1)$sigma^2
 var.cov.b <- MSE*XTXI
 var.cov.b
 ```
-
-
 
