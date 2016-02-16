@@ -127,4 +127,42 @@ confint(mod1, parm = "TV", level = 0.90)
 confint(mod1)
 ```
 
+### Linear Algebra
+
+
+Consider the 2 $\times$ 2 matrix $A$.
+
+$$A = \begin{bmatrix}
+2 & 4 \\
+9 & 5 \\
+\end{bmatrix}
+$$
+
+```{r}
+A <- matrix(c(2, 9, 4, 5), nrow = 2)
+A
+t(A)          # Transpose of A
+t(A)%*%A      # A'A
+```
+
+
+
+```{r}
+X <- model.matrix(mod1)
+XTX <- t(X)%*%X
+dim(XTX)
+XTXI <- solve(XTX)
+XTXI
+# But it is best to compute this quantity using
+summary(mod1)$cov.unscaled
+betahat <- XTXI%*%t(X)%*%y
+betahat
+coef(mod1)
+XTXI <- summary(mod1)$cov.unscaled
+MSE <- summary(mod1)$sigma^2
+var.cov.b <- MSE*XTXI
+var.cov.b
+```
+
+
 
