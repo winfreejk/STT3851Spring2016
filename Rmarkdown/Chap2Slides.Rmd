@@ -57,6 +57,13 @@ p2 <- ggplotly(p)
 p2
 ```
 
+## Scatterplot Matrices
+
+```{r}
+library(car)
+scatterplotMatrix(~ Sales + TV + Radio + Newspaper, data = AD)
+```
+
 
 ## Chapter 3
 
@@ -77,6 +84,8 @@ RSS <- sum(eis^2)
 RSS
 RSE <- sqrt(RSS/(dim(AD)[1]-2))
 RSE
+# Or
+summary(mod1)$sigma
 ```
 
 The least squares estimators of $\beta_0$ and $\beta_1$ are
@@ -109,7 +118,14 @@ c(tb0, tb1)
 pvalues <- c(pt(tb0, 198, lower = FALSE)*2, pt(tb1, 198, lower = FALSE)*2)
 pvalues
 coef(summary(mod1))
+TSS <- sum((y - mean(y))^2)
+c(RSS, TSS)
+R2 <- (TSS - RSS)/TSS
+R2
+# Or
+summary(mod1)$r.squared
 ```
+
 
 ## Confidence Interval for $\beta_1$
 
@@ -181,5 +197,144 @@ XTXI <- summary(mod1)$cov.unscaled
 MSE <- summary(mod1)$sigma^2
 var.cov.b <- MSE*XTXI
 var.cov.b
+```
+
+## Multiple Linear Regression
+
+```{r}
+mod2 <- lm(Sales ~ TV + Radio, data = AD)
+summary(mod2)
+```
+
+### Graphing the plane
+
+```{r, echo = FALSE}
+library(scatterplot3d)
+s3d <- scatterplot3d(x = AD$TV, y = AD$Radio, 
+              z = AD$Sales, xlab = "TV", 
+              ylab = "Radio", zlab = "Sales",
+              box = TRUE, pch = 20, color = "white",
+              cex.symbols = 0.75, angle = 60, grid = FALSE)
+s3d$plane3d(mod2 <- lm(Sales ~ TV + Radio, data = AD), 
+            lty = "dotted", lty.box = "solid")
+orig <- s3d$xyz.convert(x = AD$TV, y = AD$Radio, 
+                        z = AD$Sales)
+plane <- s3d$xyz.convert(x = AD$TV, y = AD$Radio,  fitted(mod2))
+i.negpos <- 1 + (resid(mod2) > 0)
+segments(orig$x, orig$y, plane$x, plane$y,
+         col = c("darkblue", "lightblue3")[i.negpos])
+s3d$points3d(x = AD$TV, y = AD$Radio, 
+             z = AD$Sales,
+             col = c("darkblue", "lightblue3")[i.negpos],
+             pch = 20)
+```
+
+
+
+
+
+## Is There a Relationship Between the Response and Predictors?
+
+```{r}
+mod3 <- lm(Sales ~ TV + Radio + Newspaper, data = AD)
+summary(mod3)
+```
+
+$$H_0: \beta_1 = \beta_2 = \beta_3 = 0$$
+versus the alternative
+$$H_1: \text{at least one } \beta_j \neq 0$$
+
+The test statistic is $F = \frac{(\text{TSS} - \text{RSS})/p}{\text{RSS}/(n-p-1)}$
+
+```{r}
+anova(mod3)
+SSR <- sum(anova(mod3)[1:3, 2])
+MSR <- SSR/3
+SSE <- anova(mod3)[4, 2]
+MSE <- SSE/(200-3-1)
+Fobs <- MSR/MSE
+Fobs
+pvalue <- pf(Fobs, 3, 196, lower = FALSE)
+pvalue
+# Or
+summary(mod3)
+summary(mod3)$fstatistic
+```
+
+Suppose we would like to test whether $\beta_2 = \beta_3 = 0$.  The reduced model with $\beta_2 = \beta_3 = 0$ is `mod1` while the full model is `mod3`.
+
+```{r}
+summary(mod3)
+anova(mod1, mod3)
+```
+
+## Variable Selection
+
+* Forward selection
+
+```{r}
+mod.fs <- lm(Sales ~ 1, data = AD)
+SCOPE <- (~. + TV + Radio + Newspaper)
+add1(mod.fs, scope = SCOPE, test = "F")
+mod.fs <- update(mod.fs, .~. + TV)
+add1(mod.fs, scope = SCOPE, test = "F")
+mod.fs <- update(mod.fs, .~. + Radio)
+add1(mod.fs, scope = SCOPE, test = "F")
+summary(mod.fs)
+```
+
+* Using `stepAIC`
+
+```{r}
+stepAIC(lm(Sales ~ 1, data = AD), scope = .~TV + Radio + Newspaper, direction = "forward", test = "F")
+```
+
+
+* Backward elimination
+
+```{r}
+mod.be <- lm(Sales ~ TV + Radio + Newspaper, data = AD)
+drop1(mod.be, test = "F")
+mod.be <- update(mod.be, .~. - Newspaper)
+drop1(mod.be, test = "F")
+summary(mod.be)
+```
+
+* Using `stepAIC`
+
+```{r}
+stepAIC(lm(Sales ~ TV + Radio + Newspaper, data = AD), scope = .~TV + Radio + Newspaper, direction = "backward", test = "F")
+```
+
+
+## Diagnostic Plots
+
+```{r}
+residualPlots(mod2)
+qqPlot(mod2)
+influenceIndexPlot(mod2)
+```
+
+
+
+We use a _confidence interval_ to quantify the uncertainty surrounding the _average_ `Sales` over a large number of cities.  For example, given that $100,000 is spent on `TV` advertising and $20,000 is spent on `Radio` advertising in each city, the 95% confidence interval is [`r predict(mod.be, newdata = data.frame(TV = 100, Radio = 20), interval = "conf")[2]`, `r predict(mod.be, newdata = data.frame(TV = 100, Radio = 20), interval = "conf")[3]`].  We interpret this to mean that 95% of intervals of this form will contain the true value of `Sales`.
+
+```{r}
+predict(mod.be, newdata = data.frame(TV = 100, Radio = 20), interval = "conf")
+```
+
+On the other hand, a _prediction interval_ can be used to quantify the uncertainty surrounding `Sales` for a _particular_ city.  Given that $100,000 is spent on `TV` advertising and $20,000 is spent on `Radio` advertising in **a particular** city, the 95% prediction interval is [`r predict(mod.be, newdata = data.frame(TV = 100, Radio = 20), interval = "pred")[2]`, `r predict(mod.be, newdata = data.frame(TV = 100, Radio = 20), interval = "pred")[3]`].  We interpret this to mean that 95% of intervals of this form will contain the true value of `Sales` for this city.
+
+```{r}
+predict(mod.be, newdata = data.frame(TV = 100, Radio = 20), interval = "pred")
+```
+
+Note that both the intervals are centered at `r predict(mod.be, newdata = data.frame(TV = 100, Radio = 20))`, but that the prediction interval is substantially wider than the confidence interval, reflecting the increased uncertainty about `Sales` for a given city in comparison to the average `Sales` over many locations.
+
+
+```{r}
+Credit <- read.csv("http://www-bcf.usc.edu/~gareth/ISL/Credit.csv")
+datatable(Credit[, -1], rownames = FALSE)
+str(Credit)
 ```
 
