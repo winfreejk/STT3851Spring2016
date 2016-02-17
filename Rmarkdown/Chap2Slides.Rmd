@@ -331,10 +331,178 @@ predict(mod.be, newdata = data.frame(TV = 100, Radio = 20), interval = "pred")
 
 Note that both the intervals are centered at `r predict(mod.be, newdata = data.frame(TV = 100, Radio = 20))`, but that the prediction interval is substantially wider than the confidence interval, reflecting the increased uncertainty about `Sales` for a given city in comparison to the average `Sales` over many locations.
 
+## Non-Additive Models
+
+```{r}
+nam1 <- lm(Sales ~ TV*Radio, data = AD)
+# Same as 
+nam2 <- lm(Sales ~ TV + Radio + TV:Radio, data = AD)
+summary(nam1)
+summary(nam2)
+```
+
+**Hierarchical Principle:** If an interaction term is included in a model, one should also include the main effects, even if the _p-values_ associated with their coefficients are not significant.
+
+
+
+
+
+## Qualitative Predictors
+
+In the `Credit` data frame there are four qualitative features/variables `Gender`, `Student`, `Married`, and `Ethnicity`.
 
 ```{r}
 Credit <- read.csv("http://www-bcf.usc.edu/~gareth/ISL/Credit.csv")
 datatable(Credit[, -1], rownames = FALSE)
-str(Credit)
+```
+
+
+
+```{r}
+modP <- lm(Balance ~ Income*Student, data = Credit)
+summary(modP)
+```
+
+Fitted Model: $\widehat{\text{Balance}}  = `r coef(modP)[1]` + `r coef(modP)[2]`\cdot \text{Income} + `r coef(modP)[3]`\cdot \text{Student} + `r coef(modP)[4]`\cdot\text{Income}\times\text{Student}$
+
+### Predictors with Only Two Levels
+
+Suppose we wish to investigate differences in credit card balance between males and females, ignoring the other variables for the moment.
+
+```{r}
+modS <- lm(Balance ~ Gender, data = Credit)
+summary(modS)
+coef(modS)
+tapply(Credit$Balance, Credit$Gender, mean)
+library(ggplot2)
+ggplot(data = Credit, aes(x = Gender, y = Balance)) + 
+  geom_point() + 
+  theme_bw() + 
+  geom_hline(yintercept = coef(modS)[1] + coef(modS)[2], color = "blue") + 
+  geom_hline(yintercept = coef(modS)[1], color = "pink")
+```
+
+```{r}
+modS1 <- lm(Balance ~ Limit + Student, data = Credit)
+summary(modS1)
+coef(modS1)
+# Interaction --- Non-additive Model
+modS2 <- lm(Balance ~ Limit*Student, data = Credit)
+summary(modS2)
+```
+
+### What does this look like?
+
+Several points:
+
+* Is the interaction significant?
+* Which model is `ggplot2` graphing below?
+* Is this the correct model?
+
+```{r}
+ggplot(data = Credit, aes(x = Limit, y = Balance, color = Student)) + 
+  geom_point() + 
+  stat_smooth(method = "lm")
+```
+
+### Correct Graph
+
+```{r}
+ggplot(data = Credit, aes(x = Limit, y = Balance, color = Student)) +
+  geom_point() + 
+  theme_bw() + 
+  geom_abline(intercept = coef(modS1)[1], slope = coef(modS1)[2], color = "red") + 
+  geom_abline(intercept = coef(modS1)[1] + coef(modS1)[3], slope = coef(modS1)[2], color = "blue")
+```
+
+### Qualitative predictors with More than Two Levels
+
+```{r}
+modQ3 <- lm(Balance ~ Limit + Ethnicity, data = Credit)
+summary(modQ3)
+coef(modQ3)
+modRM <- lm(Balance ~ Limit, data = Credit)
+anova(modRM, modQ3)
+```
+
+ What follows fits three separate regression lines based on `Ethnicity`.
+ 
+```{r}
+AfAmer <- lm(Balance ~ Limit, data = subset(Credit, Ethnicity == "African American"))
+AsAmer <- lm(Balance ~ Limit, data = subset(Credit, Ethnicity == "Asian"))
+CaAmer <- lm(Balance ~ Limit, data = subset(Credit, Ethnicity == "Caucasian"))
+rbind(coef(AfAmer), coef(AsAmer), coef(CaAmer))
+ggplot(data = Credit, aes(x = Limit, y = Balance, color = Ethnicity)) +
+  geom_point() + 
+  theme_bw() +
+  stat_smooth(method = "lm", se = FALSE)
+```
+
+**Note:** `Ethnicity` is not significant, so we really should have just one line.
+
+```{r}
+ggplot(data = Credit, aes(x = Limit, y = Balance)) +
+  geom_point(aes(color = Ethnicity)) + 
+  theme_bw() +
+  stat_smooth(method = "lm")
+```
+
+## Matrix Scatterplots
+
+```{r, warning = FALSE, message = FALSE}
+scatterplotMatrix(~ Balance + Income + Limit + Rating + Cards + Age + Education + Gender + Student + Married + Ethnicity,  data = Credit)
+modC <- stepAIC(lm(Balance ~ Income + Limit + Rating + Cards + Age + Education + Gender + Student + Married + Ethnicity,  data = Credit), direction = "backward", test = "F")
+modC
+modD <- stepAIC(lm(Balance ~ 1, data = Credit), scope = ~ . + Income + Limit + Cards + Age + Education + Gender + Student + Married + Ethnicity, direction = "forward", test = "F")
+modD
+# Predict
+predict(modC, newdata = data.frame(Income = 80, Limit = 5000, Cards = 3, Age = 52, Student = "No", Rating = 800), interval = "pred")
+```
+
+## More Diagnostic Plots
+
+```{r}
+residualPlots(modC)
+qqPlot(modC)
+influenceIndexPlot(modC)
+```
+
+## Non-linear Relationships
+
+```{r}
+library(ISLR)
+car1 <- lm(mpg ~ horsepower, data = Auto)
+car2 <- lm(mpg ~ poly(horsepower, 2), data = Auto)
+car5 <- lm(mpg ~ poly(horsepower, 5), data = Auto)
+xs <- seq(min(Auto$horsepower), max(Auto$horsepower), length = 500)
+y1 <- predict(car1, newdata = data.frame(horsepower = xs))
+y2 <- predict(car2, newdata = data.frame(horsepower = xs))
+y5 <- predict(car5, newdata = data.frame(horsepower = xs))
+DF <- data.frame(x = xs, y1 = y1, y2 = y2, y5 = y5)
+ggplot(data = Auto, aes(x = horsepower, y = mpg)) + 
+  geom_point() + 
+  theme_bw() + 
+  geom_line(data = DF, aes(x = x, y = y1), color = "red") + 
+  geom_line(data = DF, aes(x = x, y = y2), color = "blue") + 
+  geom_line(data = DF, aes(x = x, y = y5), color = "green")
+```
+
+```{r}
+ggplot(data = Auto, aes(x = horsepower, y = mpg)) + 
+  geom_point(color = "lightblue") + 
+  theme_bw() + 
+  stat_smooth(method = "lm", data = Auto, color = "red", se = FALSE) + 
+  stat_smooth(method = "lm", formula = y ~ poly(x, 2), data = Auto, color = "blue", se = FALSE) + 
+  stat_smooth(method = "lm", formula = y ~ poly(x, 5), data = Auto, color = "green", se = FALSE) 
+```
+
+
+
+```{r}
+newC <- update(modC, .~. - Limit - Income - Rating + poly(Income, 2) + poly(Limit, 4))
+summary(newC)
+residualPlots(newC)
+qqPlot(newC)
+influenceIndexPlot(newC)
 ```
 
