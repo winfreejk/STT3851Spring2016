@@ -2,8 +2,19 @@
 title: "Chapter Two Graphs"
 author: "Alan Arnholt"
 date: 'Last updated: `r format(Sys.time(), "%b %d, %Y")`'
-output: html_document
+output: 
+  html_document: 
+    highlight: textmate
+    theme: readable
 ---
+
+```{r, label = "SETUP", echo = FALSE, results= 'hide', message = FALSE, warning = FALSE}
+set.seed(123)
+library(knitr)
+knitr::opts_chunk$set(comment = NA,  fig.align = 'center', fig.height = 5, fig.width = 5, prompt = FALSE, highlight = TRUE, tidy = FALSE, warning = FALSE, message = FALSE, tidy.opts=list(blank = TRUE, width.cutoff= 75, cache = TRUE))
+```
+
+
 
 ```{r message = FALSE}
 site <- "http://www-bcf.usc.edu/~gareth/ISL/Advertising.csv"
