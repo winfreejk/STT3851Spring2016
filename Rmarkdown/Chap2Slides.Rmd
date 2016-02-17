@@ -460,7 +460,7 @@ ggplot(data = Credit, aes(x = Limit, y = Balance)) +
 
 ## Matrix Scatterplots
 
-```{r, warning = FALSE, message = FALSE}
+```{r, warning = FALSE, message = FALSE, fig.width = 12, fig.height = 12}
 scatterplotMatrix(~ Balance + Income + Limit + Rating + Cards + Age + Education + Gender + Student + Married + Ethnicity,  data = Credit)
 modC <- stepAIC(lm(Balance ~ Income + Limit + Rating + Cards + Age + Education + Gender + Student + Married + Ethnicity,  data = Credit), direction = "backward", test = "F")
 modC
