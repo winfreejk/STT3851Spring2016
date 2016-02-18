@@ -517,3 +517,33 @@ qqPlot(newC)
 influenceIndexPlot(newC)
 ```
 
+## Variance Inflation Factor (VIF)
+
+The VIF is the ratio of the variance of $\hat{\beta}_j$ when fitting the full model divided by the variance of $\hat{\beta}_j$ if it is fit on itw own.  The smallest possible value for VIF is 1, which indicates the complete absence of collinearity.  The VIF for each variable can be computed using the formula:
+
+$$VIF(\hat{\beta}_j) = \frac{1}{1 - R^2_{X_j|X_{-j}}}$$
+
+where $R^2_{X_j|X_{-j}}$ is the $R^2$ from a regression of $X_j$ onto all of the other predictors.  If $R^2_{X_j|X_{-j}}$ is close to one, then collinearity is present, and so the VIF will be large.
+
+
+Compute the VIF for each $\hat{\beta}_j$ of `modC`
+
+```{r}
+modC
+R2inc <- summary(lm(Income ~ Limit + Rating + Cards + Age + Student, data = Credit))$r.squared
+R2inc
+VIFinc <- 1/(1 - R2inc)
+VIFinc
+R2lim <- summary(lm(Limit ~ Income + Rating + Cards + Age + Student, data = Credit))$r.squared
+R2lim
+VIFlim <- 1/(1 - R2lim)
+VIFlim
+```
+
+This is tedious is there a function to do this?  Yes!
+
+```{r}
+car::vif(modC)
+```
+
+
