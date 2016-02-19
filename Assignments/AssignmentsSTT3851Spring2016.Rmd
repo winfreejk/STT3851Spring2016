@@ -139,19 +139,24 @@ Watch the following Videos:
 
 **Feb 23:**
 
-* Reproduce [Lab: Linear Regression](../Rmarkdown/LabChap3.html).  Submit your html file to [CrowdGrader](https://www.crowdgrader.org/) no later than 5 pm Feb 26.
+* Answer questions at the end of [Chapter 2 and 3 material](../Rmarkdown/Chap2Slides.html).
+* Reproduce [Lab: Linear Regression](../Rmarkdown/LabChap3.html).  Submit your html file to [CrowdGrader](https://www.crowdgrader.org/crowdgrader/venues/view_venue/1851) no later than 5 pm Feb 26.
+* Quiz - Regression
 
 **Feb 25:**
 
-* [Start Project 1](http://www.amstat.org/publications/jse/v16n2/datasets.pardoe.html) - Read the hyperlinked paper.
+* [Start Project 1](http://www.amstat.org/publications/jse/v16n2/datasets.pardoe.html) - Read the hyperlinked paper.  The data set can be downloaded from http://www.amstat.org/publications/jse/datasets/homes76.dat.txt, while the code book is available from http://www.amstat.org/publications/jse/datasets/homes76.txt
+
 
 **Mar 1:**
 
 * Work on Project 1
 
+
 **Mar 3:**
 
 * Work on Project 1
+* Quiz$^2$ Chapter 3
 
 **~~Mar 7 - Mar 11~~ **No Class - Spring Break**
 
