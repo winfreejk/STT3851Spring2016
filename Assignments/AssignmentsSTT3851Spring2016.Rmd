@@ -139,7 +139,7 @@ Watch the following Videos:
 
 **Feb 23:**
 
-* Reproduce [Linear Regression]().  Submit your html file to [CrowdGrader](https://www.crowdgrader.org/) no later than 5 pm Feb 26.
+* Reproduce [Linear Regression Lab](../Rmarkdown/LabChap3.html).  Submit your html file to [CrowdGrader](https://www.crowdgrader.org/) no later than 5 pm Feb 26.
 
 **Feb 25:**
 
