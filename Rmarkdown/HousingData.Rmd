@@ -15,13 +15,21 @@ knitr::opts_chunk$set(comment = NA,  fig.align = 'center', fig.height = 5, fig.w
 Reading the comma separated file from the `Data` directory one level up from where this document is stored using the `read.csv()` function.
 
 ```{r, label = "READIN", cache = TRUE}
-housedata <- read.csv("../Data/housedata.csv")
-names(housedata)
+housedata <- read.csv("../Data/housedata.csv", 
+                      colClasses = c(id = "character", date = "character", yr_built = "character",
+                                     zipcode = "character"))
+housedata$date <- as.Date(housedata$date, "%Y%m%d")
+housedata$waterfront <- factor(housedata$waterfront, labels = c("No", "Yes"))
+# housedata$yr_built <- as.Date(housedata$yr_built, "%Y")
+housedata$yr_built <- as.Date(ISOdate(housedata$yr_built, 9, 1))  # Complete Year, Sept 1
+housedata$yr_renovated <- ifelse(housedata$yr_renovated == 0, NA, housedata$yr_renovated)
+housedata$yr_renovated <- as.character(housedata$yr_renovated)
+housedata$yr_renovated <- as.Date(housedata$yr_renovated, "%Y")
 ```
 
 ```{r , message = FALSE, warning = FALSE}
 library(DT)
-datatable(housedata[,1:8])
+datatable(housedata[, 2:10], rownames = FALSE)
 ```
 
 Consider predicting the price (`price`) of a house based on a certain feature (`sqft_living`).  Start by graphing the relationship.
