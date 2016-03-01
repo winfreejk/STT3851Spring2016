@@ -150,12 +150,12 @@ Watch the following Videos:
 
 **Mar 1:**
 
-* Work on Project 1
+* [Work on Project 1](../Rmarkdown/DirectionsMHP.html)
 
 
 **Mar 3:**
 
-* Work on Project 1
+* [Work on Project 1](../Rmarkdown/DirectionsMHP.html)
 * Quiz$^2$ Chapter 3
 
 **~~Mar 7 - Mar 11~~ **No Class - Spring Break**
