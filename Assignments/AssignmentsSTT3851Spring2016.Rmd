@@ -164,6 +164,8 @@ Watch the following Videos:
 
 * [Estimating Prediction Error and Validation Set Approach](https://www.youtube.com/watch?v=_2ij6eaaSl0) (14:01)
 * [K-fold Cross-Validation](https://www.youtube.com/watch?v=nZAM5OXrktY) (13:33)
+* Commit your final changes for Project 1 to your private repository and email the instructor your SHA prior to 10am March 16, 2016.  Use the subject line "Project 1-STT3851-Last_name First_name-SHA#" in your email.
+* Work on Chapter 3 Assessment - due no later than 10am March 18, 2016 - The chapter 3 Assessment will be recorded as both a quiz grade and a midterm grade. 
 
 
 **Mar 17:**
