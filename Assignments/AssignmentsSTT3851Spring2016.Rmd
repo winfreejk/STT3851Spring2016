@@ -162,32 +162,37 @@ Watch the following Videos:
 
 **Mar 15:**
 
-* [Estimating Prediction Error and Validation Set Approach](https://www.youtube.com/watch?v=_2ij6eaaSl0) (14:01)
-* [K-fold Cross-Validation](https://www.youtube.com/watch?v=nZAM5OXrktY) (13:33)
 * Commit your final changes for Project 1 to your private repository and email the instructor your SHA prior to 10am March 16, 2016.  Use the subject line "Project 1-STT3851-Last_name First_name-SHA#" in your email.
 * Work on Chapter 3 Assessment - due no later than 10am March 18, 2016 - The chapter 3 Assessment will be recorded as both a quiz grade and a midterm grade. 
 
 
 **Mar 17:**
 
-* [Cross-Validation: The Right and Wrong Ways](https://www.youtube.com/watch?v=S06JpVoNaA0) (10:07)
-* [The Bootstrap](https://www.youtube.com/watch?v=p4BYWX7PTBM) (11:29)
-* [More on the Bootstrap](https://www.youtube.com/watch?v=BzHz0J9a6k0) (14:35)
-* [Lab: Cross-Validation](https://www.youtube.com/watch?v=6dSXlqHAoMk) (11:21)
-* [Lab: The Bootstrap](https://www.youtube.com/watch?v=YVSmsWoBKnA) (7:40)
+* Work on Chapter 3 Assessment - due no later than 10am March 18, 2016 - The chapter 3 Assessment will be recorded as both a quiz grade and a midterm grade. 
 
 **Mar 22:**
 
-* Work on _Lab: Cross-Validation and the Bootstrap_
+* Go over Chapter Chapter 3 Assessment
+* [Cross-Validation Hand Out](../Rmarkdown/Cross-ValidationInClassHO.pdf)
+
+Watch the following videos:
+
+* [Estimating Prediction Error and Validation Set Approach](https://www.youtube.com/watch?v=_2ij6eaaSl0) (14:01)
+* [K-fold Cross-Validation](https://www.youtube.com/watch?v=nZAM5OXrktY) (13:33)
+* [Cross-Validation: The Right and Wrong Ways](https://www.youtube.com/watch?v=S06JpVoNaA0) (10:07)
+
 
 **Mar 24:**
 
-* Complete and submit to CrowdGrader _Lab: Cross-Validation and the Bootstrap_
+* [Finish Cross-Validation Hand Out](../Rmarkdown/Cross-ValidationInClassHO.pdf)
+* [Watch: Lab: Cross-Validation](https://www.youtube.com/watch?v=6dSXlqHAoMk) (11:21)
+* [Reproduce _Lab: Cross-Validation_](../Rmarkdown/LabCrossValidation.html)
 
 **~~Mar 29~~ No Class**
 
 **Mar 31:**
 
+* Complete [Reproduce _Lab: Cross-Validation_](../Rmarkdown/LabCrossValidation.html).  Submit your html file to [CrowdGrader](	https://www.crowdgrader.org/crowdgrader/venues/view_venue/1934) no later than 5 pm April 1.
 * [Linear Model Selection and Best Subset Selection](https://www.youtube.com/watch?v=91si52nk3LA) (13:44)
 * [Forward Stepwise Selection](https://www.youtube.com/watch?v=nLpJd_iKmrE) (12:26)
 * [Backward Stepwise Selection ](https://www.youtube.com/watch?v=NJhMSpI2Uj8) (5:26)
