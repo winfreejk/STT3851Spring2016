@@ -204,7 +204,7 @@ Watch the following videos:
 Start Project 2 
 
 * Example Template available in [piazza resources](https://piazza.com/class_profile/get_resource/ij30tx2hndb4ew/imbzx5c48k76f)
-* Use the [housedata.csv](https://github.com/STAT-ATA-ASU/STT3851Spring2016/blob/gh-pages/Data/housedata.csv) file - See [Housing Data](http://stat-ata-asu.github.io/STT3851Spring2016/Rmarkdown/HousingData.html)
+* Use the [housedata.csv](https://github.com/STAT-ATA-ASU/STT3851Spring2016/raw/gh-pages/Data/housedata.csv) file - See [Housing Data](http://stat-ata-asu.github.io/STT3851Spring2016/Rmarkdown/HousingData.html)
 
 **Apr 5:**
 
@@ -250,15 +250,16 @@ Watch the following videos:
 
 **Apr 26:**
 
-* Poster
+* [Poster Template Directory](https://github.com/STAT-ATA-ASU/STT2810ClassRepo/tree/gh-pages/Poster)
+* Work on Poster
 
 **Apr 28:**
 
-* Poster
+* Work on Poster
 
 **May 3:**
 
-* Poster
+* Work on Poster
 
 **May 11:**
 
