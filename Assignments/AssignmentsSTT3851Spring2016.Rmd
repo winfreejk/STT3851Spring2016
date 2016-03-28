@@ -201,6 +201,11 @@ Watch the following videos:
 * [Forward Stepwise Selection](https://www.youtube.com/watch?v=nLpJd_iKmrE) (12:26)
 * [Backward Stepwise Selection ](https://www.youtube.com/watch?v=NJhMSpI2Uj8) (5:26)
 
+Start Project 2 
+
+* Example Template available in [piazza resources](https://piazza.com/class_profile/get_resource/ij30tx2hndb4ew/imbzx5c48k76f)
+* Use the [housedata.csv](https://github.com/STAT-ATA-ASU/STT3851Spring2016/blob/gh-pages/Data/housedata.csv) file - See [Housing Data](http://stat-ata-asu.github.io/STT3851Spring2016/Rmarkdown/HousingData.html)
+
 **Apr 5:**
 
 Watch the following videos:
