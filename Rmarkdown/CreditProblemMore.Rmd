@@ -1,0 +1,271 @@
+---
+title: "Credit Problem--More"
+author: "Alan Arnholt"
+date: "5/05/2016"
+output: 
+    html_document:
+      code_folding: hide
+---
+
+```{r, label = "SETUP", echo = FALSE, results= 'hide', message = FALSE, warning = FALSE}
+library(knitr)
+knitr::opts_chunk$set(comment = NA, fig.align = 'center', fig.height = 5, fig.width = 5, prompt = FALSE, highlight = TRUE, tidy = FALSE, warning = FALSE, message = FALSE, tidy.opts=list(blank = TRUE, width.cutoff = 80))
+```
+
+
+
+Read in the data:
+
+```{r}
+Credit <- read.csv("http://www-bcf.usc.edu/~gareth/ISL/Credit.csv")
+Credit$Utilization <- Credit$Balance / (Credit$Income*100)
+summary(Credit)
+Credit <- Credit[ ,-1]
+DT::datatable(Credit, rownames = FALSE)
+```
+
+
+## Best subsets regression
+
+```{r}
+library(leaps)
+regfit.full <- regsubsets(Rating ~. , data = Credit, nvmax = 12)
+summary(regfit.full)
+summary(regfit.full)$rsq
+reg.summary <- summary(regfit.full)
+```
+
+## Picking
+
+```{r, fig.width=10, fig.height = 12}
+par(mfrow = c(2, 2))
+plot(reg.summary$rss, xlab = "Number of Variables", ylab = "RSS", type = "l")
+plot(reg.summary$adjr2, xlab = "Number of Variables", ylab = " Adjusted RSq", type = "l")
+points(which.max(reg.summary$adjr2), reg.summary$adjr2[which.max(reg.summary$adjr2)], col = "red",cex = 2, pch = 20)
+plot(reg.summary$cp, xlab = "Number of Variables", ylab = "Cp",
+type ="l")
+points(which.min(reg.summary$cp), reg.summary$cp[which.min(reg.summary$cp)], col = "red", cex = 2, pch = 20)
+plot(reg.summary$bic, xlab = "Number of Variables", ylab = "BIC",
+type = "l")
+points(which.min(reg.summary$bic), reg.summary$bic[which.min(reg.summary$bic)], col = "red", cex = 2, pch = 20)
+par(mfrow = c(1, 1))
+```
+
+## Using the build in `leaps` plotting functions
+
+```{r, fig.width=10, fig.height = 12}
+par(mfrow = c(2, 2))
+plot(regfit.full, scale = "r2")
+plot(regfit.full, scale = "adjr2")
+plot(regfit.full, scale = "Cp")
+plot(regfit.full, scale = "bic")
+par(mfrow = c(1, 1))
+```
+
+What are the coefcients selected with BIC?
+
+```{r}
+which.min(reg.summary$bic)
+coef(regfit.full, which.min(reg.summary$bic))
+```
+
+## Forward selection with `leaps`
+
+```{r}
+regfit.fwd <- regsubsets(Rating ~. , data = Credit , nvmax = 12,
+method = "forward")
+summary(regfit.fwd)
+reg.summary <- summary(regfit.fwd)
+```
+
+## Picking
+
+```{r, fig.width=10, fig.height = 12}
+par(mfrow = c(2, 2))
+plot(reg.summary$rss, xlab = "Number of Variables", ylab = "RSS", type = "l")
+plot(reg.summary$adjr2, xlab = "Number of Variables", ylab = " Adjusted RSq", type = "l")
+points(which.max(reg.summary$adjr2), reg.summary$adjr2[which.max(reg.summary$adjr2)], col = "red",cex = 2, pch = 20)
+plot(reg.summary$cp, xlab = "Number of Variables", ylab = "Cp",
+type ="l")
+points(which.min(reg.summary$cp), reg.summary$cp[which.min(reg.summary$cp)], col = "red", cex = 2, pch = 20)
+plot(reg.summary$bic, xlab = "Number of Variables", ylab = "BIC",
+type = "l")
+points(which.min(reg.summary$bic), reg.summary$bic[which.min(reg.summary$bic)], col = "red", cex = 2, pch = 20)
+par(mfrow = c(1, 1))
+```
+
+## Using the build in `leaps` plotting functions
+
+```{r, fig.width=10, fig.height = 12}
+par(mfrow = c(2, 2))
+plot(regfit.fwd, scale = "r2")
+plot(regfit.fwd, scale = "adjr2")
+plot(regfit.fwd, scale = "Cp")
+plot(regfit.fwd, scale = "bic")
+par(mfrow = c(1, 1))
+```
+
+What are the coefcients selected with BIC?
+
+```{r}
+which.min(reg.summary$bic)
+coef(regfit.fwd, which.min(reg.summary$bic))
+```
+
+
+## Backward selection with `leaps`
+
+```{r}
+regfit.bwd <- regsubsets(Rating ~. , data = Credit , nvmax = 12,
+method = "backward")
+summary(regfit.bwd)
+reg.summary <- summary(regfit.bwd)
+```
+
+## Picking
+
+```{r, fig.width=10, fig.height = 12}
+par(mfrow = c(2, 2))
+plot(reg.summary$rss, xlab = "Number of Variables", ylab = "RSS", type = "l")
+plot(reg.summary$adjr2, xlab = "Number of Variables", ylab = " Adjusted RSq", type = "l")
+points(which.max(reg.summary$adjr2), reg.summary$adjr2[which.max(reg.summary$adjr2)], col = "red",cex = 2, pch = 20)
+plot(reg.summary$cp, xlab = "Number of Variables", ylab = "Cp",
+type ="l")
+points(which.min(reg.summary$cp), reg.summary$cp[which.min(reg.summary$cp)], col = "red", cex = 2, pch = 20)
+plot(reg.summary$bic, xlab = "Number of Variables", ylab = "BIC",
+type = "l")
+points(which.min(reg.summary$bic), reg.summary$bic[which.min(reg.summary$bic)], col = "red", cex = 2, pch = 20)
+par(mfrow = c(1, 1))
+```
+
+## Using the build in `leaps` plotting functions
+
+```{r, fig.width=10, fig.height = 12}
+par(mfrow = c(2, 2))
+plot(regfit.bwd, scale = "r2")
+plot(regfit.bwd, scale = "adjr2")
+plot(regfit.bwd, scale = "Cp")
+plot(regfit.bwd, scale = "bic")
+par(mfrow = c(1, 1))
+```
+
+What are the coefcients selected with BIC?
+
+```{r}
+which.min(reg.summary$bic)
+coef(regfit.bwd, which.min(reg.summary$bic))
+```
+
+### Different Models
+
+```{r}
+coef(regfit.full, 7)
+coef(regfit.fwd, 7)
+coef(regfit.bwd, 7)
+```
+
+
+## Choosing among models using validation set approach
+
+```{r}
+set.seed(123)
+train = sample(c(TRUE, FALSE), size = nrow(Credit), replace = TRUE)
+test <- (!train)
+regfit.best <- regsubsets(Rating ~ ., data = Credit[train, ], nvmax = 12)
+test.mat <- model.matrix(Rating ~ ., data = Credit[test, ])
+val.errors <- numeric(12)
+for(i in 1:12){
+  coefi <- coef(regfit.best, id = i)
+  pred <- test.mat[, names(coefi)]%*%coefi
+  val.errors[i] <- mean((Credit$Rating[test] - pred)^2)
+}
+val.errors
+which.min(val.errors)
+coef(regfit.best, which.min(val.errors))
+```
+
+## Creating the `regsubsets` `predict` function
+
+```{r}
+predict.regsubsets=function(object,newdata ,id ,...){
+form <- as.formula(object$call[[2]])
+mat <- model.matrix(form,newdata)
+coefi <- coef(object,id=id)
+xvars <- names(coefi)
+mat[,xvars]%*%coefi
+}
+```
+
+
+## Choosing among models of different sizes with cross validation
+
+```{r}
+k <- 5
+set.seed(123)
+folds <- sample(1:k, size = nrow(Credit), replace = TRUE)
+cv.errors <- matrix(NA, k, 12, dimnames = list(NULL, paste(1:12)))
+#
+for(j in 1:k){
+  best.fit <- regsubsets(Rating ~ ., data = Credit[folds != j, ], nvmax = 12)
+  for(i in 1:12){
+    pred <- predict(best.fit, Credit[folds ==j,], id = i)
+    cv.errors[j, i] <- mean((Credit$Rating[folds==j] - pred)^2)
+  }
+}
+mean.cv.errors <- apply(cv.errors, 2, mean)
+mean.cv.errors
+plot(mean.cv.errors, type = "b")
+```
+
+Note that the best model contains 2 variables.  We now perform best subset selection of the full data set in order to obtain the 2-variable model.
+
+```{r}
+reg.best <- regsubsets(Rating ~ ., data = Credit, nvmax = 12)
+coef(reg.best, 2)
+```
+
+
+
+# Using `stepAIC`
+
+```{r}
+library(MASS)
+mod.fs <- stepAIC(lm(Rating ~ 1, data = Credit), scope = .~Income + Limit + Cards + Age + Education + Gender + Student + Married + Ethnicity + Balance + Utilization, direction = "forward", test = "F")
+mod.be <- stepAIC(lm(Rating ~ Income + Limit + Cards + Age + Education + Gender + Student + Married + Ethnicity + Balance + Utilization, data = Credit), direction = "backward", test = "F")
+summary(mod.fs)
+summary(mod.be) 
+car::vif(mod.be)
+car::vif(mod.fs)
+```
+
+I prefer `mod.fs` since it has less multicollinearity.
+
+* Create another model that predicts rating with `Limit`, `Cards`, `Married`, `Student`, and `Education` as features. 
+
+```{r}
+mod <- lm(Rating ~ Limit + Cards + Married + Student + Education, data = Credit)
+summary(mod)
+par(mfrow = c(2, 2))
+plot(mod)
+par(mfrow = c(1, 1))
+car::residualPlots(mod)
+modN <- lm(Rating ~ poly(Limit, 2, raw = TRUE) + poly(Cards, 2, raw = TRUE) + Married + Student + Education, data = Credit)
+summary(modN)
+car::residualPlots(modN)
+car::vif(modN)
+summary(modN)
+```
+
+* Use your model to predict the `Rating` for an individual that has a credit card limit of
+$6,000, has 4 credit cards, is married, and is not a student, and has an undergraduate degree (`Education` = 16).
+
+* Use your model to predict the `Rating` for an individual that has a credit card limit of
+$12,000, has 2 credit cards, is married, is not a student, and has an eighth grade education (`Education` = 8).
+
+```{r}
+predict(modN, newdata = data.frame(Limit = 6000, Cards = 4, Married = "Yes", Student = "No", Education = 16), response = "pred")
+### Should be the same as:
+coef(modN)[1] + coef(modN)[2]*6000 + coef(modN)[3]*6000^2 + coef(modN)[4]*4 + coef(modN)[5]*4^2 + coef(modN)[6]*1 + coef(modN)[7]*0 + coef(modN)[8]*16
+predict(modN, newdata = data.frame(Limit = 12000, Cards = 2, Married = "Yes", Student = "No", Education = 8), response = "pred")
+```
+
