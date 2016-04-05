@@ -184,7 +184,7 @@ which.min(val.errors)
 coef(regfit.best, which.min(val.errors))
 ```
 
-## Creating the `regsubsets` `predict` function
+## Creating a `predict` function for `regsubsets`
 
 ```{r}
 predict.regsubsets=function(object,newdata ,id ,...){
