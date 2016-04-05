@@ -51,7 +51,7 @@ points(which.min(reg.summary$bic), reg.summary$bic[which.min(reg.summary$bic)], 
 par(mfrow = c(1, 1))
 ```
 
-## Using the build in `leaps` plotting functions
+## Using the generic `leaps` plotting functions
 
 ```{r, fig.width=10, fig.height = 12}
 par(mfrow = c(2, 2))
@@ -62,7 +62,7 @@ plot(regfit.full, scale = "bic")
 par(mfrow = c(1, 1))
 ```
 
-What are the coefcients selected with BIC?
+What are the coefficients selected with BIC?
 
 ```{r}
 which.min(reg.summary$bic)
@@ -105,7 +105,7 @@ plot(regfit.fwd, scale = "bic")
 par(mfrow = c(1, 1))
 ```
 
-What are the coefcients selected with BIC?
+What are the coefficients selected with BIC?
 
 ```{r}
 which.min(reg.summary$bic)
@@ -149,7 +149,7 @@ plot(regfit.bwd, scale = "bic")
 par(mfrow = c(1, 1))
 ```
 
-What are the coefcients selected with BIC?
+What are the coefficients selected with BIC?
 
 ```{r}
 which.min(reg.summary$bic)
