@@ -216,6 +216,8 @@ Watch the following videos:
 
 **Apr 7:**
 
+* Quiz - Section 6.1 ISLR
+
 Watch the following videos:
 
 * [Shrinkage Methods and Ridge Regression](https://www.youtube.com/watch?v=cSKzqb0EKS0) (12:37)
