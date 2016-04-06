@@ -158,7 +158,7 @@ which.min(reg.summary$bic)
 coef(regfit.bwd, which.min(reg.summary$bic))
 ```
 
-### Different Models
+### Different Models?
 
 ```{r}
 coef(regfit.full, 7)
@@ -170,7 +170,7 @@ coef(regfit.bwd, 7)
 ## Choosing among models using validation set approach
 
 ```{r}
-set.seed(123)
+set.seed(23)
 train = sample(c(TRUE, FALSE), size = nrow(Credit), replace = TRUE)
 test <- (!train)
 regfit.best <- regsubsets(Balance ~ ., data = Credit[train, ], nvmax = 12)
@@ -203,7 +203,7 @@ mat[,xvars]%*%coefi
 
 ```{r}
 k <- 5
-set.seed(123)
+set.seed(1)
 folds <- sample(1:k, size = nrow(Credit), replace = TRUE)
 cv.errors <- matrix(NA, k, 12, dimnames = list(NULL, paste(1:12)))
 #
@@ -216,14 +216,15 @@ for(j in 1:k){
 }
 mean.cv.errors <- apply(cv.errors, 2, mean)
 mean.cv.errors
+which.min(mean.cv.errors)
 plot(mean.cv.errors, type = "b")
 ```
 
-Note that the best model contains 7 variables.  We now perform best subset selection of the full data set in order to obtain the 7-variable model.
+Note that the best model contains `r which.min(mean.cv.errors)` variables.  We now perform best subset selection of the full data set in order to obtain the `r which.min(mean.cv.errors)`-variable model.
 
 ```{r}
 reg.best <- regsubsets(Rating ~ ., data = Credit, nvmax = 12)
-coef(reg.best, 7)
+coef(reg.best, which.min(mean.cv.errors))
 coef(reg.best, 3) # The curve really does not drop much after 3...
 mymod <- lm(Rating ~ Limit + Cards + Married, data = Credit)
 summary(mymod)
