@@ -1,7 +1,7 @@
 ---
 title: "Credit Problem--More"
 author: "Alan Arnholt"
-date: "5/05/2016"
+date: "4/06/2016"
 output: 
     html_document:
       code_folding: hide
@@ -29,11 +29,13 @@ DT::datatable(Credit, rownames = FALSE)
 
 ```{r}
 library(leaps)
-regfit.full <- regsubsets(Rating ~. , data = Credit, nvmax = 12)
+regfit.full <- regsubsets(Balance ~. , data = Credit, nvmax = 12)
 summary(regfit.full)
 summary(regfit.full)$rsq
 reg.summary <- summary(regfit.full)
 ```
+
+
 
 ## Picking
 
@@ -72,7 +74,7 @@ coef(regfit.full, which.min(reg.summary$bic))
 ## Forward selection with `leaps`
 
 ```{r}
-regfit.fwd <- regsubsets(Rating ~. , data = Credit , nvmax = 12,
+regfit.fwd <- regsubsets(Balance ~. , data = Credit , nvmax = 12,
 method = "forward")
 summary(regfit.fwd)
 reg.summary <- summary(regfit.fwd)
@@ -116,7 +118,7 @@ coef(regfit.fwd, which.min(reg.summary$bic))
 ## Backward selection with `leaps`
 
 ```{r}
-regfit.bwd <- regsubsets(Rating ~. , data = Credit , nvmax = 12,
+regfit.bwd <- regsubsets(Balance ~. , data = Credit , nvmax = 12,
 method = "backward")
 summary(regfit.bwd)
 reg.summary <- summary(regfit.bwd)
@@ -171,13 +173,13 @@ coef(regfit.bwd, 7)
 set.seed(123)
 train = sample(c(TRUE, FALSE), size = nrow(Credit), replace = TRUE)
 test <- (!train)
-regfit.best <- regsubsets(Rating ~ ., data = Credit[train, ], nvmax = 12)
-test.mat <- model.matrix(Rating ~ ., data = Credit[test, ])
+regfit.best <- regsubsets(Balance ~ ., data = Credit[train, ], nvmax = 12)
+test.mat <- model.matrix(Balance ~ ., data = Credit[test, ])
 val.errors <- numeric(12)
 for(i in 1:12){
   coefi <- coef(regfit.best, id = i)
   pred <- test.mat[, names(coefi)]%*%coefi
-  val.errors[i] <- mean((Credit$Rating[test] - pred)^2)
+  val.errors[i] <- mean((Credit$Balance[test] - pred)^2)
 }
 val.errors
 which.min(val.errors)
@@ -206,10 +208,10 @@ folds <- sample(1:k, size = nrow(Credit), replace = TRUE)
 cv.errors <- matrix(NA, k, 12, dimnames = list(NULL, paste(1:12)))
 #
 for(j in 1:k){
-  best.fit <- regsubsets(Rating ~ ., data = Credit[folds != j, ], nvmax = 12)
+  best.fit <- regsubsets(Balance ~ ., data = Credit[folds != j, ], nvmax = 12)
   for(i in 1:12){
     pred <- predict(best.fit, Credit[folds ==j,], id = i)
-    cv.errors[j, i] <- mean((Credit$Rating[folds==j] - pred)^2)
+    cv.errors[j, i] <- mean((Credit$Balance[folds==j] - pred)^2)
   }
 }
 mean.cv.errors <- apply(cv.errors, 2, mean)
@@ -217,11 +219,14 @@ mean.cv.errors
 plot(mean.cv.errors, type = "b")
 ```
 
-Note that the best model contains 2 variables.  We now perform best subset selection of the full data set in order to obtain the 2-variable model.
+Note that the best model contains 7 variables.  We now perform best subset selection of the full data set in order to obtain the 7-variable model.
 
 ```{r}
 reg.best <- regsubsets(Rating ~ ., data = Credit, nvmax = 12)
-coef(reg.best, 2)
+coef(reg.best, 7)
+coef(reg.best, 3) # The curve really does not drop much after 3...
+mymod <- lm(Rating ~ Limit + Cards + Married, data = Credit)
+summary(mymod)
 ```
 
 
@@ -230,17 +235,18 @@ coef(reg.best, 2)
 
 ```{r}
 library(MASS)
-mod.fs <- stepAIC(lm(Rating ~ 1, data = Credit), scope = .~Income + Limit + Cards + Age + Education + Gender + Student + Married + Ethnicity + Balance + Utilization, direction = "forward", test = "F")
-mod.be <- stepAIC(lm(Rating ~ Income + Limit + Cards + Age + Education + Gender + Student + Married + Ethnicity + Balance + Utilization, data = Credit), direction = "backward", test = "F")
+mod.fs <- stepAIC(lm(Balance ~ 1, data = Credit), scope = .~Income + Limit + Cards + Age + Education + Gender + Student + Married + Ethnicity + Rating + Utilization, direction = "forward", test = "F")
+mod.be <- stepAIC(lm(Balance ~ Income + Limit + Cards + Age + Education + Gender + Student + Married + Ethnicity + Rating + Utilization, data = Credit), direction = "backward", test = "F")
 summary(mod.fs)
 summary(mod.be) 
 car::vif(mod.be)
 car::vif(mod.fs)
 ```
 
-I prefer `mod.fs` since it has less multicollinearity.
+# Changing the problem now
+## Response is now `Rating`
 
-* Create another model that predicts rating with `Limit`, `Cards`, `Married`, `Student`, and `Education` as features. 
+* Create a model that predicts `Rating` with `Limit`, `Cards`, `Married`, `Student`, and `Education` as features. 
 
 ```{r}
 mod <- lm(Rating ~ Limit + Cards + Married + Student + Education, data = Credit)
