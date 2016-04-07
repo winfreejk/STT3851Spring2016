@@ -223,10 +223,10 @@ plot(mean.cv.errors, type = "b")
 Note that the best model contains `r which.min(mean.cv.errors)` variables.  We now perform best subset selection of the full data set in order to obtain the `r which.min(mean.cv.errors)`-variable model.
 
 ```{r}
-reg.best <- regsubsets(Rating ~ ., data = Credit, nvmax = 12)
+reg.best <- regsubsets(Balance ~ ., data = Credit, nvmax = 12)
 coef(reg.best, which.min(mean.cv.errors))
 coef(reg.best, 3) # The curve really does not drop much after 3...
-mymod <- lm(Rating ~ Limit + Cards + Married, data = Credit)
+mymod <- lm(Balance ~ Income + Rating +  Student, data = Credit)
 summary(mymod)
 ```
 
