@@ -244,6 +244,50 @@ car::vif(mod.be)
 car::vif(mod.fs)
 ```
 
+# Ridge Regression
+
+```{r}
+library(glmnet)
+x <- model.matrix(Balance ~ ., data = Credit)[, -1]
+y <- Credit$Balance
+grid <- 10^seq(10, -2, length = 100)
+ridge.mod <- glmnet(x[train,], y[train], alpha = 0, lambda = grid)
+dim(coef(ridge.mod))
+plot(ridge.mod, xvar = "lambda", label = TRUE)
+set.seed(123)
+cv.out <- cv.glmnet(x[train,], y[train], alpha = 0)
+plot(cv.out)
+bestlambda <- cv.out$lambda.min
+bestlambda
+ridge.pred <- predict(ridge.mod, s = bestlambda, newx = x[test, ])
+mean((ridge.pred - y[test])^2)
+final <- glmnet(x, y, alpha = 0)
+predict(final, type = "coefficients", s = bestlambda)
+```
+
+# Lasso Regression
+
+```{r}
+x <- model.matrix(Balance ~ ., data = Credit)[, -1]
+y <- Credit$Balance
+grid <- 10^seq(10, -2, length = 100)
+lasso.mod <- glmnet(x[train,], y[train], lambda = grid)
+dim(coef(lasso.mod))
+plot(lasso.mod, xvar = "lambda", label = TRUE)
+plot(lasso.mod, xvar = "dev", label = TRUE)
+set.seed(123)
+cv.out <- cv.glmnet(x[train,], y[train], alpha = 1)
+plot(cv.out)
+bestlambda <- cv.out$lambda.min
+bestlambda
+lasso.pred <- predict(lasso.mod, s = bestlambda, newx = x[test, ])
+mean((lasso.pred - y[test])^2)
+final <- glmnet(x, y, alpha = 1, lambda = grid)
+predict(final, type = "coefficients", s = bestlambda)
+predict(final, type = "coefficients", s = 20)
+```
+
+
 # Changing the problem now
 ## Response is now `Rating`
 
