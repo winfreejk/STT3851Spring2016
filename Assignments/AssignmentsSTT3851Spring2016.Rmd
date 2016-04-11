@@ -203,7 +203,7 @@ Watch the following videos:
 
 Start Project 2 
 
-* [Example Template](../BDbetaTemplate/_book/introduction.html)
+* [Example Template Directory](https://github.com/STAT-ATA-ASU/STT3851Spring2016/blob/gh-pages/BDbetaTemplate)
 * Use the [housedata.csv](https://github.com/STAT-ATA-ASU/STT3851Spring2016/raw/gh-pages/Data/housedata.csv) file - See [Housing Data](http://stat-ata-asu.github.io/STT3851Spring2016/Rmarkdown/HousingData.html)
 
 **Apr 5:**
@@ -231,7 +231,7 @@ Watch the following videos:
 **Apr 12:**
 
 * Using [Book Down](https://bookdown.org/yihui/bookdown/)
-* [Template for project 2](../BDbetaTemplate/_book/introduction.html)
+* [Example Template Directory](https://github.com/STAT-ATA-ASU/STT3851Spring2016/blob/gh-pages/BDbetaTemplate)
 
 Watch the following videos:
 
