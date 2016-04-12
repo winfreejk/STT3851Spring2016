@@ -1,0 +1,20 @@
+---
+title: "Bare Bones"
+author: "Alan Arnholt"
+date: '`r format(Sys.time(), "%b %d, %Y")`'
+bibliography: PackagesUsed.bib
+knit: "bookdown::render_book"
+output:
+  bookdown::gitbook: default
+documentclass: book
+link-citations: yes
+---
+
+# Introduction
+
+This is an introduction.  See Figure \@ref(fig:MYhistogram) for an example of a density histogram.
+
+
+
+
+

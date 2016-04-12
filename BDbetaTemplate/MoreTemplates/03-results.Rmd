@@ -1,0 +1,25 @@
+# Results
+
+## Cross Validation
+
+See equation (\@ref(eq:abc)).  See equation (\@ref(eq:ghi)).
+
+\begin{equation}
+a^2 + b^2 = c^2
+\label{eq:abc}
+\end{equation}
+
+
+\begin{equation}
+d^2 + e^2 = f^2
+\label{eq:def}
+\end{equation}
+
+
+
+## Best Model
+
+\begin{equation}
+g^2 + h^2 = i^2
+\label{eq:ghi}
+\end{equation}
