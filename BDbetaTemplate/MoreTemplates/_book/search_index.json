@@ -1,0 +1,7 @@
+[
+["introduction.html", "Bare Bones 1 Introduction", " Bare Bones Alan Arnholt Apr 12, 2016   1 Introduction This is an introduction. See Figure 2.1 for an example of a density histogram. "],
+["methods.html", "2 Methods 2.1 Data Collection 2.2 Exploratory Analysis 2.3 Statistical Modeling", " 2 Methods    Figure 2.1: This is where you should write your figure description    2.1 Data Collection   2.2 Exploratory Analysis   2.3 Statistical Modeling mod.lm &lt;- lm(Assault ~ UrbanPop, data = USArrests) anova(mod.lm) ## Analysis of Variance Table ##  ## Response: Assault ##           Df Sum Sq Mean Sq F value  Pr(&gt;F)   ## UrbanPop   1  22806 22805.9  3.4477 0.06948 . ## Residuals 48 317507  6614.7                   ## --- ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1 Suppose you want the last output in a Table. See Table 2.1.  Table 2.1: ANOVA for regressing Assault on UrbanPop    Df Sum Sq Mean Sq F value Pr(&gt;F)     UrbanPop 1 22805.93 22805.933 3.448 0.069   Residuals 48 317507.19 6614.733 NA NA     "],
+["results.html", "3 Results 3.1 Cross Validation 3.2 Best Model", " 3 Results  3.1 Cross Validation See equation \\ref{eq:abc}.    3.2 Best Model  "],
+["conclusions.html", "4 Conclusions", " 4 Conclusions "],
+["references.html", "5 References", " 5 References  "]
+]

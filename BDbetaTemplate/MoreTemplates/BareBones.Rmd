@@ -1,0 +1,59 @@
+---
+title: "Bare Bones"
+author: "Alan Arnholt"
+date: '`r format(Sys.time(), "%b %d, %Y")`'
+knit: "bookdown::render_book"
+output:
+  bookdown::html_document2
+link-citations: yes
+---
+
+# Introduction
+
+This is an introduction.  See Figure \@ref(fig:MYhistogram) for an example of a density histogram.
+
+# Methods
+
+
+```{r, label = "MYhistogram", echo = FALSE, fig.cap = "This is where you should write your figure description"}
+set.seed(123)
+hist(rnorm(10000), xlab = "Your Label Here", col = "red", 
+     breaks = "Scott", main = "", freq = FALSE)
+```
+
+
+## Data Collection
+
+## Exploratory Analysis
+
+## Statistical Modeling
+
+```{r}
+mod.lm <- lm(Assault ~ UrbanPop, data = USArrests)
+anova(mod.lm)
+```
+
+Suppose you want the last output in a Table.  See Table \@ref(tab:ANOVA1).
+
+```{r, label = "ANOVA1", echo = FALSE}
+knitr::kable(anova(mod.lm), digits = 3, caption = "ANOVA for regressing `Assault` on `UrbanPop`")
+```
+
+
+
+# Results
+
+## Cross Validation
+
+See equation \@ref(eq:abc).
+
+\begin{equation}
+a^2 + b^2 = c^2
+\label{eq:abc}
+\end{equation}
+
+## Best Model
+
+# Conclusions
+
+# References
