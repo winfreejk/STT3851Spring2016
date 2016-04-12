@@ -1,3 +1,0 @@
-# Conclusions
-
-See Figure \@ref(fig:MYhistogram) for an example of a density histogram. See Table \@ref(tab:ANOVA1) for the ANOVA.
