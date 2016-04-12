@@ -1,7 +1,7 @@
 ---
 title: "Modeling the interest rate charged by the [Lending Club](http://www.lendingclub.com/)"
 author: "Alan Arnholt"
-date: '`r format(Sys.time(), "%b %d, %Y")`'
+date: '`r format(Sys.time(), "%B %d, %Y")`'
 bibliography:
 - ./BIB/CV.bib
 - ./BIB/TemplateRefs.bib
