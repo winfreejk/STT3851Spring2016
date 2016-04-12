@@ -2,9 +2,11 @@
 title: "Bare Bones"
 author: "Alan Arnholt"
 date: '`r format(Sys.time(), "%b %d, %Y")`'
+bibliography: PackagesUsed.bib
 knit: "bookdown::render_book"
 output:
-  bookdown::html_document2
+  bookdown::gitbook: default
+documentclass: article
 link-citations: yes
 ---
 
@@ -39,17 +41,35 @@ Suppose you want the last output in a Table.  See Table \@ref(tab:ANOVA1).
 knitr::kable(anova(mod.lm), digits = 3, caption = "ANOVA for regressing `Assault` on `UrbanPop`")
 ```
 
+## Reproducibility
 
+All analyses performed in this paper can be reproduced by running the original `.Rmd` file with RStudio, assuming the link to the original data remains current and the contents thereof remain unchanged. The `R` packages `car` [@R-car], `ggplot2` [@R-ggplot2], `knitr` [@R-knitr], `rmarkdown` [@R-rmarkdown], and `bookdown` [@R-bookdown]  will need to be installed on the user's computer.  Since `bookdown` is being actively developed and is not yet on [CRAN](https://cran.r-project.org/), you will need to install `bookdown` from [GitHub](https://github.com)
+by typing the following at the `R` prompt:
+
+```{r, eval = FALSE}
+devtools::install_github("rstudio/bookdown")
+```
 
 # Results
 
 ## Cross Validation
 
-See equation \@ref(eq:abc).
+See equation (\@ref(eq:abc)).  See equation (\@ref(eq:ghi)).
 
 \begin{equation}
 a^2 + b^2 = c^2
 \label{eq:abc}
+\end{equation}
+
+
+\begin{equation}
+d^2 + e^2 = f^2
+\label{eq:def}
+\end{equation}
+
+\begin{equation}
+g^2 + h^2 = i^2
+\label{eq:ghi}
 \end{equation}
 
 ## Best Model
@@ -57,3 +77,10 @@ a^2 + b^2 = c^2
 # Conclusions
 
 # References
+```{r, echo = FALSE, message = FALSE, results = 'hide', warning = FALSE}
+PackagesUsed <- c("rmarkdown", "knitr", "base", "xtable", "ggplot2", "car", "bookdown")
+# Write bib information
+knitr::write_bib(PackagesUsed, file = "PackagesUsed.bib")
+# Load packages
+lapply(PackagesUsed, library, character.only = TRUE)
+```
