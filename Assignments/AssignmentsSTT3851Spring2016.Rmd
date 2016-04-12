@@ -232,7 +232,7 @@ Watch the following videos:
 
 * Using [Book Down](https://bookdown.org/yihui/bookdown/)
 * [Example Template Directory](https://github.com/STAT-ATA-ASU/STT3851Spring2016/blob/gh-pages/BDbetaTemplate)
-* [Example Paper](../BDbetaTemplate/MoreTemplates/_main.html)
+* [Example Paper](http://rpubs.com/arnholt/170567)
 
 
 Watch the following videos:
