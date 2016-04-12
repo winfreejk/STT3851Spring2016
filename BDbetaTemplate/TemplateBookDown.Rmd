@@ -42,7 +42,7 @@ February 16, 2013,  and again `r format(Sys.time(), "%B %d, %Y")`, using the `R`
 [https://www.lendingclub.com/public/how-we-set-interest-rates.action](https://www.lendingclub.com/public/how-we-set-interest-rates.action) web page.
 
 ```{r, echo = FALSE, results = "hide", warning = FALSE, message = FALSE}
-download.file(url = "https://spark-public.s3.amazonaws.com/dataanalysis/loansData.csv", destfile = "./Data/ProjectTwo.csv")
+download.file(url = "https://spark-public.s3.amazonaws.com/dataanalysis/loansData.csv", destfile = "./Data/ProjectTwo.csv", method = "curl")
 # Information is now in 'data' folder
 FD <- read.csv("./Data/ProjectTwo.csv")
 summary(FD)
