@@ -9,6 +9,7 @@ bibliography:
 knit: "bookdown::render_book"
 output:
   bookdown::gitbook: default
+  selfcontained: TRUE
 documentclass: article
 link-citations: yes
 ---
