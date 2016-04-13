@@ -19,7 +19,7 @@ library(ggplot2)
 library(car)
 ```
 
-# Introduction
+# Introduction {#introduction}
 
 
 The [Lending Club](http://www.lendingclub.com/) @leader says it uses technology and innovation to reduce the cost of traditional banking and to offer borrowers better rates and investors better returns.  Literature on the [Lending Club](http://www.lendingclub.com/) web site states that the interest rate the [Lending Club](http://www.lendingclub.com/) charges borrowers is based on a club base rate with an adjustment for risk and volatility with further modifiers based on the amount of the loan and the length of the loan.  
@@ -30,8 +30,8 @@ Modeling the relationship between interest rate and other recorded data allows t
 knitr::include_graphics('images/LendingClub.png')
 ```
 
-# Methods
-
+# Methods {#methods}
+ 
 ## Data Collection
 
 Data used in this paper was originally downloaded from 
@@ -140,7 +140,7 @@ devtools::install_github("rstudio/bookdown")
 ```
 
 
-# Results
+# Results {#results}
 
 ```{r, echo = FALSE}
 # Note data was cleaned outside of this document
@@ -196,7 +196,7 @@ kable(
 )
 ```
 
-# Conclusions
+# Conclusions {#conclusions}
 
 ```{r,  label = "BIGTabCI", echo = FALSE}
 NEW1 <- data.frame(FICO.Range = c("755-759","755-759","755-759"), Monthly.Income = c(3500, 5000, 6800), 
@@ -305,4 +305,4 @@ knitr::write_bib(PackagesUsed, file = "./BIB/PackagesUsed.bib")
 lapply(PackagesUsed, library, character.only = TRUE)
 ```
 
-# References
+# References {#references}
