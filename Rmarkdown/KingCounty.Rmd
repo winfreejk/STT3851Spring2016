@@ -151,11 +151,29 @@ Your goal is to create a model with as small a test error as possible.  Note tha
 
 ```{r, fig.width=10, fig.height = 10}
 library(ggmap)
-KingMap <- get_map(location = c(lon = -122.1, lat = 47.48), zoom = 10, source = "google", maptype = "roadmap")
+KingMap <-
+  get_map(
+    location = c(lon = -122.1, lat = 47.48),
+    zoom = 10,
+    source = "google",
+    maptype = "roadmap"
+  )
 ggmap(KingMap) +
-  geom_point(aes(x = housedata$long, y = housedata$lat), data = housedata,
- alpha = .2, color = "purple", size = 0.05) + 
-  ggtitle("Houses Sold in King County, Wa (2014-2015)") + 
+  geom_point(
+    aes(x = housedata$long, y = housedata$lat),
+    data = housedata,
+    alpha = .2,
+    color = "blue",
+    size = 0.01
+  ) +
+  geom_point(
+    aes(x = housedataT$long, y = housedataT$lat),
+    data = housedataT,
+    alpha = .2,
+    color = "red",
+    size = 0.01
+  ) +
+  ggtitle("Houses Sold in King County, Wa (2014-2015)") +
   labs(x = "longitute", y = "latitude")
 ```
 
