@@ -31,13 +31,13 @@
 <<setup, comment = NA, echo = FALSE, message = FALSE, warning=FALSE>>=
 options(width = 35)
 opts_chunk$set(comment = NA, fig.align='center', fig.width=13, fig.height=6, cache=FALSE, warning = FALSE, message = FALSE)
-require(maps)
-require(ggplot2)
-require(PASWR)
-require(tree)
-require(randomForest)
-require(boot)
-require(xtable)
+library(maps)
+library(ggplot2)
+library(PASWR)
+library(tree)
+library(randomForest)
+library(boot)
+library(xtable)
 @
 
 %-- Column 1 ---------------------------------------------------
@@ -155,7 +155,7 @@ p4 <- ggplot(data = MERGED, aes(x = long, y = lat, group = group, fill = EMWpctf
 ##
 
 theme_clean <- function(base_size = 12){
-  require(grid)  # need for unit() function
+  library(grid)  # need for unit() function
     theme_grey(base_size) %+replace%
     theme(
       axis.title         = element_blank(),
