@@ -265,7 +265,7 @@ Watch the following videos:
 
 **Apr 26:**
 
-* [Poster Template Directory](https://github.com/STAT-ATA-ASU/STT2810ClassRepo/tree/gh-pages/Poster)
+* [Poster Template Directory](https://github.com/STAT-ATA-ASU/STT3851Spring2016/tree/gh-pages/Poster)
 * Work on Poster
 
 **Apr 28:**
@@ -278,6 +278,6 @@ Watch the following videos:
 
 **May 11:**
 
-* Final - Present Poster
+* Final - Present Poster 12-2:30
 
 #[Home Page](http://stat-ata-asu.github.io/STT3851Spring2016/) - [Syllabus](http://stat-ata-asu.github.io/STT3851Spring2016/Syllabus/STT3851Spring2016Syllabus.html) - [Piazza](https://piazza.com/class/ij30tx2hndb4ew)
