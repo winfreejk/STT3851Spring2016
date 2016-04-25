@@ -31,11 +31,11 @@
 <<setup, comment = NA, echo = FALSE, message = FALSE, warning=FALSE>>=
 options(width = 35)
 opts_chunk$set(comment = NA, fig.align='center', fig.width=13, fig.height=6, cache=FALSE, warning = FALSE, message = FALSE)
-require(maps)
-require(ggplot2)
-require(PDS)
-require(boot)
-require(xtable)
+library(maps)
+library(ggplot2)
+library(PDS)
+library(boot)
+library(xtable)
 @
 
 %-- Column 1 ---------------------------------------------------
