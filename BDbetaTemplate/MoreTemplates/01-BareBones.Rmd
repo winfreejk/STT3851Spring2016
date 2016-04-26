@@ -165,11 +165,10 @@ Although the final model includes variables that may measure similar quantities 
 The final model used was
 
 
-\begin{align}
-\sqrt{\text{IR}} &= \beta_0 + \beta_1 \text{AR} + \beta_2 \text{log10(MI)} + \beta_3 \text{OCL} + \beta_4 \text{OCL}^2 + \beta_5 \text{IL6M} \nonumber \\
-&\qquad{} + \beta_6 \text{IL6M}^2 + \beta_7 \text{f(LL)} + \beta_8 \text{f(FICO)} + \beta_9 \text{f(AR:LL)} + \varepsilon
-\label{eq:final}
-\end{align}
+$$
+\sqrt{\text{IR}} = \beta_0 + \beta_1 \text{AR} + \beta_2 \text{log10(MI)} + \beta_3 \text{OCL} + \beta_4 \text{OCL}^2 + \beta_5 \text{IL6M} +$$
+$$\beta_6 \text{IL6M}^2 + \beta_7 \text{f(LL)} + \beta_8 \text{f(FICO)} + \beta_9 \text{f(AR:LL)} + \varepsilon
+$$
 
 
 The variables `f(LL)`, `f(FICO)`, and `f(AR:LL)` are factors for loan length (2 levels 36 months and 60 months), credit score (34 levels), and the interaction between amount requested and the loan length, respectively.  The error term $\varepsilon$ is assumed to follow a normal distribution with mean 0 and constant variance.  A graph of the residuals versus the fitted model, shown in Figure \@ref(fig:residplot), shows a constant variance for the majority of the range of the fitted values, suggesting the fitted model satisfies the assumptions required for inferential techniques to work with ordinary least squares.  
